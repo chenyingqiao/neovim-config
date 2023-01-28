@@ -59,8 +59,8 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 map("v", "p", '"_dP', opt)
 
 -- 退出
-map("n", "qq", ":q!<CR>", opt)
-map("n", "<leader>q", ":qa!<CR>", opt)
+map("n", "qq", ":wq!<CR>", opt)
+map("n", "<leader>q", ":wqa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
 -- map("i", "<C-h>", "<ESC>I", opt)
@@ -70,13 +70,12 @@ map("n", "<leader>q", ":qa!<CR>", opt)
 -- windows 分屏快捷键
 ------------------------------------------------------------------
 -- 取消 s 默认功能
-map("n", "s", "", opt)
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+map("n", "<C-w>v", ":vsp<CR>", opt)
+map("n", "<C-w>h", ":sp<CR>", opt)
 -- 关闭当前
-map("n", "sc", "<C-w>c", opt)
+-- map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
-map("n", "so", "<C-w>o", opt) -- close others
+-- map("n", "so", "<C-w>o", opt) -- close others
 -- alt + hjkl  窗口之间跳转
 map("n", "<A-h>", "<C-w>h", opt)
 map("n", "<A-j>", "<C-w>j", opt)
@@ -90,19 +89,19 @@ map("n", "<leader>l", "<C-w>l", opt)
 -- 左右比例控制
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
-map("n", "s,", ":vertical resize -10<CR>", opt)
-map("n", "s.", ":vertical resize +10<CR>", opt)
+map("n", "<C-w>,", ":vertical resize -10<CR>", opt)
+map("n", "<C-w>.", ":vertical resize +10<CR>", opt)
 -- 上下比例
-map("n", "sj", ":resize +10<CR>", opt)
-map("n", "sk", ":resize -10<CR>", opt)
+map("n", "<C-w>j", ":resize +10<CR>", opt)
+map("n", "<C-w>k", ":resize -10<CR>", opt)
 map("n", "<C-Down>", ":resize +2<CR>", opt)
 map("n", "<C-Up>", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "st", ":sp | terminal<CR>", opt)
-map("n", "stv", ":vsp | terminal<CR>", opt)
+-- map("n", "st", ":sp | terminal<CR>", opt)
+-- map("n", "stv", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
@@ -123,8 +122,8 @@ map("n", "Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
+map("n", "<leader>tm", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>tf", ":NvimTreeFocus<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>" }, action = "edit" },
@@ -161,14 +160,14 @@ map("n", "<S-j>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<S-k>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
 map("n", "<leader>bc", ":Bdelete!<CR>", opt)
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
+-- map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
-map("n", "<S-lw>", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<S-rw>", ":BufferLineCloseRight<CR>", opt)
+map("n", "<S-xl>", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<S-xr>", ":BufferLineCloseRight<CR>", opt)
 -- 关闭其他标签页
-map("n", "<S-o>", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
+map("n", "<S-xo>", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
 -- 关闭选中标签页
-map("n", "<S-w>", ":BufferLinePickClose<CR>", opt)
+map("n", "<S-x>", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
