@@ -23,6 +23,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-repeat' 
   Plug 'ggandor/flit.nvim' " 快捷跳转
   Plug 'lewis6991/gitsigns.nvim' " git差异显示和提交信息显示
+  Plug 'ahmedkhalf/project.nvim' " 项目管理
+  Plug 'glepnir/dashboard-nvim' " 标题画面 
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -37,6 +39,8 @@ lua require('theme')
 lua require('keybinding')
 lua require('plugin-config/flit')
 lua require('plugin-config/gitsigns')
+" lua require('plugin-config/dashboard')
+" lua require('plugin-config/project')
 
 
 
