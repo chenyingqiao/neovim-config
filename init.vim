@@ -8,21 +8,21 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 	Plug 'morhetz/gruvbox'
 	Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-	Plug 'nvim-tree/nvim-tree.lua'
-  Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
-  Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'puremourning/vimspector'
+	Plug 'nvim-tree/nvim-tree.lua' " 文件树插件
+  Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' } " 打开文件标签页
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " vscode 提示插件
+  Plug 'nvim-lua/plenary.nvim' " 
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " 全局搜索插件
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " 折叠插件 
+  Plug 'puremourning/vimspector' " debug工具
   Plug 'tanvirtin/vgit.nvim'
   Plug 'ggandor/leap.nvim'
-  Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
-  Plug 'numToStr/Comment.nvim'
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'tpope/vim-repeat'
-  Plug 'ggandor/flit.nvim'
+  Plug 'akinsho/toggleterm.nvim', {'tag' : '*'} " 浮动窗口
+  Plug 'numToStr/Comment.nvim' " 注释 ctrl+/ 
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'} " 多行编辑 v模式 ctrl+n
+  Plug 'tpope/vim-repeat' 
+  Plug 'ggandor/flit.nvim' " 快捷跳转
+  Plug 'lewis6991/gitsigns.nvim' " git差异显示和提交信息显示
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -36,6 +36,7 @@ lua require('plugin-config/comment')
 lua require('theme')
 lua require('keybinding')
 lua require('plugin-config/flit')
+lua require('plugin-config/gitsigns')
 
 
 

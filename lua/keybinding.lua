@@ -60,7 +60,7 @@ map("v", "p", '"_dP', opt)
 
 -- 退出
 map("n", "qq", ":wq!<CR>", opt)
-map("n", "<leader>q", ":wqa!<CR>", opt)
+map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
 -- map("i", "<C-h>", "<ESC>I", opt)
@@ -94,8 +94,8 @@ map("n", "<C-w>.", ":vertical resize +10<CR>", opt)
 -- 上下比例
 map("n", "<C-w>j", ":resize +10<CR>", opt)
 map("n", "<C-w>k", ":resize -10<CR>", opt)
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
+map("n", "<C-w>Down", ":resize +2<CR>", opt)
+map("n", "<C-w>Up", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
