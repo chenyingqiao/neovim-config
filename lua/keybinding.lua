@@ -28,7 +28,7 @@ map("n", "g_", "$", opt)
 map("c", "<C-j>", "<C-n>", { noremap = false })
 map("c", "<C-k>", "<C-p>", { noremap = false })
 
--- map("n", "<leader>w", ":w<CR>", opt)
+map("n", "<leader>s", ":w<CR>", opt)
 map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- fix :set wrap
@@ -287,9 +287,19 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
   map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
+-- 选择窗口
 vim.keymap.set("n", "<leader>w", function()
     local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
     vim.api.nvim_set_current_win(picked_window_id)
 end, { desc = "Pick a window" })
 
+-- Run gofmt + goimport on save
+local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   golangFormat.goimport()
+  end,
+  group = format_sync_grp,
+})
 return pluginKeys

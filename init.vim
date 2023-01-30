@@ -26,6 +26,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ahmedkhalf/project.nvim' " 项目管理
   Plug 'glepnir/dashboard-nvim' " 标题画面 
   Plug 's1n7ax/nvim-window-picker' " 窗口选择
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'ray-x/go.nvim'
+  Plug 'ray-x/guihua.lua' 
+  Plug 'nvim-lualine/lualine.nvim'
+  " If you want to have icons in your statusline choose one of these
+  Plug 'kyazdani42/nvim-web-devicons'
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -42,6 +48,8 @@ lua require('plugin-config/flit')
 lua require('plugin-config/gitsigns')
 lua require('plugin-config/vimspector')
 lua require('plugin-config/windows-picker')
+lua require('plugin-config/golang')
+lua require('plugin-config/lualine')
 " lua require('plugin-config/dashboard')
 " lua require('plugin-config/project')
 
