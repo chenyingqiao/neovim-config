@@ -28,7 +28,7 @@ map("n", "g_", "$", opt)
 map("c", "<C-j>", "<C-n>", { noremap = false })
 map("c", "<C-k>", "<C-p>", { noremap = false })
 
-map("n", "<leader>w", ":w<CR>", opt)
+-- map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- fix :set wrap
@@ -217,8 +217,9 @@ pluginKeys.mapVimspector = function()
   map("n", "<Leader>dT", ":call vimspector#ClearBreakpoints()<CR>", opt)
   --  stepOver, stepOut, stepInto
   map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
-  map("n", "<leader>dk", "<Plug>VimspectorStepOut", opt)
-  map("n", "<leader>dl", "<Plug>VimspectorStepInto", opt)
+  map("n", "<leader>do", "<Plug>VimspectorStepOut", opt)
+  map("n", "<leader>di", "<Plug>VimspectorStepInto", opt)
+  map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
 end
 
 
@@ -285,5 +286,10 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
   -- Text object
   map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 end
+
+vim.keymap.set("n", "<leader>w", function()
+    local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
+    vim.api.nvim_set_current_win(picked_window_id)
+end, { desc = "Pick a window" })
 
 return pluginKeys

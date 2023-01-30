@@ -1,1 +1,1 @@
-let g:vimspector_enable_mappings='HUMAN'
+require("keybinding").mapVimspector()
