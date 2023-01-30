@@ -36,15 +36,15 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- 上下滚动浏览
-map("n", "<C-j>", "5j", opt)
-map("n", "<C-k>", "5k", opt)
-map("v", "<C-j>", "5j", opt)
-map("v", "<C-k>", "5k", opt)
+map("n", "<C-j>", "15j", opt)
+map("n", "<C-k>", "15k", opt)
+map("v", "<C-j>", "15j", opt)
+map("v", "<C-k>", "15k", opt)
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
-map("n", "<C-u>", "10k", opt)
-map("n", "<C-d>", "10j", opt)
-
--- magic search
+map("n", "<C-u>", "20k", opt)
+map("n", "<C-d>", "20j", opt)
+  
+-- magic search  
 map("n", "/", "/\\v", { noremap = true, silent = false })
 map("v", "/", "/\\v", { noremap = true, silent = false })
 
@@ -59,7 +59,7 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 map("v", "p", '"_dP', opt)
 
 -- 退出
-map("n", "qq", ":wq!<CR>", opt)
+map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
@@ -176,8 +176,8 @@ pluginKeys.telescopeList = {
     ["<C-n>"] = "move_selection_next",
     ["<C-p>"] = "move_selection_previous",
     -- 历史记录
-    ["<Down>"] = "cycle_history_next",
-    ["<Up>"] = "cycle_history_prev",
+    -- ["<Down>"] = "cycle_history_next",
+    -- ["<Up>"] = "cycle_history_prev",
     -- 关闭窗口
     -- ["<esc>"] = actions.close,
     ["<C-c>"] = "close",
