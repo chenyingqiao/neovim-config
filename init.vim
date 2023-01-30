@@ -32,6 +32,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-lualine/lualine.nvim'
   " If you want to have icons in your statusline choose one of these
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'sindrets/diffview.nvim'
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -51,7 +53,7 @@ lua require('plugin-config/windows-picker')
 lua require('plugin-config/golang')
 lua require('plugin-config/lualine')
 " lua require('plugin-config/dashboard')
-" lua require('plugin-config/project')
+lua require('plugin-config/project')
 
 
 
