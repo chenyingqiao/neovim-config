@@ -23,8 +23,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-repeat' 
   Plug 'ggandor/flit.nvim' " 快捷跳转
   Plug 'lewis6991/gitsigns.nvim' " git差异显示和提交信息显示
-  Plug 'ahmedkhalf/project.nvim' " 项目管理
-  Plug 'glepnir/dashboard-nvim' " 标题画面 
   Plug 's1n7ax/nvim-window-picker' " 窗口选择
   Plug 'neovim/nvim-lspconfig'
   Plug 'ray-x/go.nvim'
@@ -34,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'sindrets/diffview.nvim'
+  Plug 'kylechui/nvim-surround'
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -52,8 +51,7 @@ lua require('plugin-config/vimspector')
 lua require('plugin-config/windows-picker')
 lua require('plugin-config/golang')
 lua require('plugin-config/lualine')
-" lua require('plugin-config/dashboard')
-lua require('plugin-config/project')
+lua require('plugin-config/surround')
 
 
 

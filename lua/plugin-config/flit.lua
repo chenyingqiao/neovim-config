@@ -7,7 +7,7 @@ require('flit').setup {
   -- E.g.: opts = { equivalence_classes = {} }
   opts = {
     max_phase_one_targets = nil,
-    highlight_unlabeled_phase_one_targets = false,
+    highlight_unlabeled_phase_one_targets = true,
     max_highlighted_traversal_targets = 50,
     case_sensitive = false,
     equivalence_classes = { ' \t\r\n', },

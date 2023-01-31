@@ -24,7 +24,7 @@ nvim_tree.setup({
   },
   filters = {
     -- 隐藏 .文件
-    dotfiles = true,
+    dotfiles = false,
     -- 隐藏 node_modules 文件夹
     -- custom = { "node_modules" },
   },
@@ -52,7 +52,7 @@ nvim_tree.setup({
       -- 首次打开大小适配
       resize_window = true,
       -- 打开文件时关闭 tree
-      quit_on_open = true,
+      quit_on_open = false,
     },
   },
   -- wsl install -g wsl-open

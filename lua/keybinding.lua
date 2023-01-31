@@ -118,7 +118,7 @@ map("n", "Z", ":foldopen<CR>", opt)
 -- nvim-tree
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>tm", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>tf", ":NvimTreeFocus<CR>", opt)
+map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>" }, action = "edit" },
