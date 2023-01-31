@@ -32,6 +32,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'sindrets/diffview.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
+  Plug 'nvim-telescope/telescope-project.nvim'
   Plug 'kylechui/nvim-surround'
   " 主题
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -52,6 +54,5 @@ lua require('plugin-config/windows-picker')
 lua require('plugin-config/golang')
 lua require('plugin-config/lualine')
 lua require('plugin-config/surround')
-
-
+lua require('plugin-config/telescope')
 
