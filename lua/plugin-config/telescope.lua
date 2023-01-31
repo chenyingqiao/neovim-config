@@ -4,6 +4,7 @@ telescope.setup{
     project = {
       base_dirs = {
         {'/Users/lerko/developer-env', max_depth = 3},
+        {'/Users/lerko/.config', max_depth = 1},
       },
       hidden_files = true, -- default: false
       theme = "dropdown",
