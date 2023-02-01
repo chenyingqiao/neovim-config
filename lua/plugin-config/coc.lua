@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 
 
 -- Symbol renaming
-keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+keyset("n", "<C-v>rn", "<Plug>(coc-rename)", {silent = true})
 
 
 -- Formatting selected code
@@ -160,7 +160,7 @@ vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'edito
 -- Add (Neo)Vim's native statusline support
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline
-vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+-- vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 
 -- Mappings for CoCList
 -- code actions and coc stuff
@@ -177,9 +177,9 @@ keyset("n", "<C-v>o", ":<C-u>CocList outline<cr>", opts)
 -- Search workspace symbol
 keyset("n", "<C-v>s", ":<C-u>CocList -I symbols<cr>", opts)
 -- Do default action for next item
-keyset("n", "<C-v>j", ":<C-u>CocNext<cr>", opts)
+-- keyset("n", "<C-v>j", ":<C-u>CocNext<cr>", opts)
 -- Do default action for previous item
-keyset("n", "<C-v>k", ":<C-u>CocPrev<cr>", opts)
+-- keyset("n", "<C-v>k", ":<C-u>CocPrev<cr>", opts)
 -- Resume latest coc list
-keyset("n", "<C-v>p", ":<C-u>CocListResume<cr>", opts)
+-- keyset("n", "<C-v>p", ":<C-u>CocListResume<cr>", opts)
 
