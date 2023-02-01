@@ -109,7 +109,7 @@ keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
 
 -- Remap keys for apply refactor code actions.
---keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
+keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
 --keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 --keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 

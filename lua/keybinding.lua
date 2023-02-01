@@ -24,10 +24,6 @@ map("v", "g_", "$", opt)
 map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
 
--- 命令行下 Ctrl+j/k  上一个下一个
-map("c", "<C-j>", "<C-n>", { noremap = false })
-map("c", "<C-k>", "<C-p>", { noremap = false })
-
 map("n", "<leader>s", ":w<CR>", opt)
 map("n", "<leader>wq", ":wqa!<CR>", opt)
 
@@ -52,8 +48,8 @@ map("v", "/", "/\\v", { noremap = true, silent = false })
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 -- 上下移动选中文本
-map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '<-2<CR>gv-gv", opt)
+map("v", "<M-Up>", ":move '>+1<CR>gv-gv", opt)
+map("v", "<M-Down>", ":move '<-2<CR>gv-gv", opt)
 
 -- 在visual mode 里粘贴不要复制
 map("v", "p", '"_dP', opt)
@@ -147,8 +143,8 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 }
 -- bufferline
 -- 左右Tab切换
-map("n", "<S-j>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<S-k>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
 map("n", "<leader>bc", ":Bdelete!<CR>", opt)
 -- map("n", "<C-w>", ":Bdelete!<CR>", opt)
