@@ -32,10 +32,10 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- 上下滚动浏览
-map("n", "<C-j>", "15j", opt)
-map("n", "<C-k>", "15k", opt)
-map("v", "<C-j>", "15j", opt)
-map("v", "<C-k>", "15k", opt)
+map("n", "<C-j>", "10j", opt)
+map("n", "<C-k>", "10k", opt)
+map("v", "<C-j>", "10j", opt)
+map("v", "<C-k>", "10k", opt)
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
 map("n", "<C-u>", "20k", opt)
 map("n", "<C-d>", "20j", opt)
@@ -78,15 +78,11 @@ map("n", "<leader>j", "<C-w>j", opt)
 map("n", "<leader>k", "<C-w>k", opt)
 map("n", "<leader>l", "<C-w>l", opt)
 -- 左右比例控制
-map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
-map("n", "<C-w>,", ":vertical resize -10<CR>", opt)
-map("n", "<C-w>.", ":vertical resize +10<CR>", opt)
+map("n", "<M-Left>", ":vertical resize -2<CR>", opt)
+map("n", "<M-Right>", ":vertical resize +2<CR>", opt)
 -- 上下比例
-map("n", "<C-w>j", ":resize +10<CR>", opt)
-map("n", "<C-w>k", ":resize -10<CR>", opt)
-map("n", "<C-w>Down", ":resize +2<CR>", opt)
-map("n", "<C-w>Up", ":resize -2<CR>", opt)
+map("n", "<M-Down>", ":resize +2<CR>", opt)
+map("n", "<M-Up>", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
