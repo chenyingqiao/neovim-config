@@ -132,14 +132,14 @@ keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
 -- Remap <C-f> and <C-b> to scroll float windows/popups
 ---@diagnostic disable-next-line: redefined-local
 local opts = {silent = true, nowait = true, expr = true}
-keyset("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("n", "<C-S-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
-keyset("i", "<C-f>",
+keyset("n", "<S-Up>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-j>"', opts)
+keyset("n", "<S-Down>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-k>"', opts)
+keyset("i", "<S-Up>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
-keyset("i", "<C-S-b>",
+keyset("i", "<S-Down>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
-keyset("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("v", "<C-S-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+keyset("v", "<S-Up>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-j>"', opts)
+keyset("v", "<S-Down>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-k>"', opts)
 
 
 -- Use CTRL-S for selections ranges
