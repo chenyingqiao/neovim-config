@@ -17,11 +17,11 @@ nvim_tree.setup({
     enable = false,
   },
   -- project plugin 需要这样设置
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
+  -- update_cwd = true,
+  -- update_focused_file = {
+  --   enable = true,
+  --   update_cwd = true,
+  -- },
   filters = {
     -- 隐藏 .文件
     dotfiles = false,
@@ -34,7 +34,7 @@ nvim_tree.setup({
     -- 也可以 'right'
     side = "left",
     -- 隐藏根目录
-    hide_root_folder = false,
+    -- hide_root_folder = false,
     -- 自定义列表中快捷键
     mappings = {
       -- 只用内置快捷键

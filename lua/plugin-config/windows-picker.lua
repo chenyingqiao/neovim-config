@@ -6,5 +6,6 @@ picker.setup({
 	  filetype = {},
 	  buftypt = {}
 	},
-  }
+  },
+  other_win_hl_color = '#9600DC'
 })

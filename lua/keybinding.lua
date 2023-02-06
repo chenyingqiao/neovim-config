@@ -48,8 +48,8 @@ map("v", "/", "/\\v", { noremap = true, silent = false })
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 -- 上下移动选中文本
-map("v", "<M-Up>", ":move '>+1<CR>gv-gv", opt)
-map("v", "<M-Down>", ":move '<-2<CR>gv-gv", opt)
+map("v", "<M-Down>", ":move '>+1<CR>gv-gv", opt)
+map("v", "<M-Up>", ":move '<-2<CR>gv-gv", opt)
 
 -- 在visual mode 里粘贴不要复制
 map("v", "p", '"_dP', opt)
@@ -81,8 +81,8 @@ map("n", "<leader>l", "<C-w>l", opt)
 map("n", "<M-Left>", ":vertical resize -2<CR>", opt)
 map("n", "<M-Right>", ":vertical resize +2<CR>", opt)
 -- 上下比例
-map("n", "<M-Down>", ":resize +2<CR>", opt)
-map("n", "<M-Up>", ":resize -2<CR>", opt)
+map("n", "<M-Up>", ":resize +2<CR>", opt)
+map("n", "<M-Down>", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
@@ -145,12 +145,12 @@ map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
 map("n", "<leader>bc", ":Bdelete!<CR>", opt)
 -- map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
-map("n", "<S-xl>", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<S-xr>", ":BufferLineCloseRight<CR>", opt)
+map("n", "<leader>xl", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>xr", ":BufferLineCloseRight<CR>", opt)
 -- 关闭其他标签页
-map("n", "<S-xo>", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>xo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
 -- 关闭选中标签页
-map("n", "<S-x>", ":BufferLinePickClose<CR>", opt)
+map("n", "<leader>xx", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
@@ -208,6 +208,8 @@ pluginKeys.mapVimspector = function()
   map("n", "<leader>do", "<Plug>VimspectorStepOut", opt)
   map("n", "<leader>di", "<Plug>VimspectorStepInto", opt)
   map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
+  -- 查看断点列表
+  map("n", "<leader>db", "<Plug>VimspectorBreakpoints", opt)
 end
 
 

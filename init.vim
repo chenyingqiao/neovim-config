@@ -37,6 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kylechui/nvim-surround'
 	Plug 'Pocco81/auto-save.nvim'
 	Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'uga-rosa/translate.nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -60,4 +61,5 @@ lua require('plugin-config/telescope')
 lua require('plugin-config/treesitter')
 lua require('plugin-config/autosave')
 lua require('plugin-config/indent-blankline')
+lua require('plugin-config/translate')
 
