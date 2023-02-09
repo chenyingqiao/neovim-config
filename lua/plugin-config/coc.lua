@@ -182,4 +182,10 @@ keyset("n", "<C-v>s", ":<C-u>CocList -I symbols<cr>", opts)
 -- keyset("n", "<C-v>k", ":<C-u>CocPrev<cr>", opts)
 -- Resume latest coc list
 -- keyset("n", "<C-v>p", ":<C-u>CocListResume<cr>", opts)
-
+-- 
+-- coc-snippet 代码片段快捷键设置
+-- " Use <C-l> for trigger snippet expand.
+-- imap <C-l> <Plug>(coc-snippets-expand)
+--
+-- " Use <C-j> for select text for visual placeholder of snippet.
+-- vmap <C-j> <Plug>(coc-snippets-select)
