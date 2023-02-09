@@ -3,8 +3,8 @@ telescope.setup{
   extensions = {
     project = {
       base_dirs = {
-        {'/Users/lerko/developer-env', max_depth = 3},
-        {'/Users/lerko/.config', max_depth = 1},
+        {'~/developer-env', max_depth = 3},
+        {'~/.config', max_depth = 3},
       },
       hidden_files = true, -- default: false
       theme = "dropdown",
