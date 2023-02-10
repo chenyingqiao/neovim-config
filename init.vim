@@ -38,6 +38,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Pocco81/auto-save.nvim'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'uga-rosa/translate.nvim'
+	Plug 'glepnir/dashboard-nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -62,4 +63,5 @@ lua require('plugin-config/treesitter')
 lua require('plugin-config/autosave')
 lua require('plugin-config/indent-blankline')
 lua require('plugin-config/translate')
+lua require('plugin-config/dashboard')
 
