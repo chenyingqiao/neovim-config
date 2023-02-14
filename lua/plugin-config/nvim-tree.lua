@@ -14,7 +14,7 @@ nvim_tree.setup({
   disable_netrw = true,
   -- 不显示 git 状态图标
   git = {
-    enable = false,
+    enable = true,
   },
   -- project plugin 需要这样设置
   -- update_cwd = true,

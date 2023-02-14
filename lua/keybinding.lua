@@ -132,6 +132,11 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = "gy", action = "copy_absolute_path" },
   { key = "I", action = "toggle_file_info" },
   { key = "n", action = "tabnew" },
+  { key = "S", action = "search_node" },
+  { key = "E", action = "expand_all" },
+  { key = "F", action = "clear_live_filter" },
+  { key = "f", action = "live_filter" },
+  { key = "W", action = "collapse_all" },
   -- 进入下一级
   { key = { "]" }, action = "cd" },
   -- 进入上一级
