@@ -302,4 +302,8 @@ map("n", "<C-d>r", ":DiffviewOpen release<CR>", opt)
 map("n", "<C-d>c", ":DiffviewClose<CR>", opt)
 map("n", "<C-d>f", ":DiffviewFileHistory<CR>", opt)
 
+map("n", "<leader>tw", ":TranslateW<CR>", opt)
+map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
+
+
 return pluginKeys
