@@ -39,6 +39,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'uga-rosa/translate.nvim'
 	Plug 'glepnir/dashboard-nvim'
+	Plug 'simnalamburt/vim-mundo'
+	Plug 'karb94/neoscroll.nvim'
+	Plug 'jackMort/ChatGPT.nvim'
+	Plug 'MunifTanjim/nui.nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -64,4 +68,6 @@ lua require('plugin-config/autosave')
 lua require('plugin-config/indent-blankline')
 lua require('plugin-config/translate')
 lua require('plugin-config/dashboard')
-
+lua require('plugin-config/mundo')
+lua require('plugin-config/chatgpt')
+" lua require('plugin-config/neoscroll')

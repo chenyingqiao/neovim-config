@@ -32,13 +32,10 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- 上下滚动浏览
-map("n", "<C-j>", "10j", opt)
-map("n", "<C-k>", "10k", opt)
-map("v", "<C-j>", "10j", opt)
-map("v", "<C-k>", "10k", opt)
--- ctrl u / ctrl + d  只移动9行，默认移动半屏
-map("n", "<C-u>", "20k", opt)
-map("n", "<C-d>", "20j", opt)
+map("n", "<C-j>", "15j", opt)
+map("n", "<C-k>", "15k", opt)
+map("v", "<C-j>", "15j", opt)
+map("v", "<C-k>", "15k", opt)
 
 -- magic search
 map("n", "/", "/\\v", { noremap = true, silent = false })
@@ -297,5 +294,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 map("n", "<C-v>f", ":Format<CR>", opt)
+map("n", "<C-a>n", ":ChatGPT<CR>", opt)
+map("n", "<C-u>", ":MundoToggle<CR>", opt)
+map("n", "<C-d>m", ":DiffviewOpen master<CR>", opt)
+map("n", "<C-d>t", ":DiffviewOpen test<CR>", opt)
+map("n", "<C-d>r", ":DiffviewOpen release<CR>", opt)
+map("n", "<C-d>c", ":DiffviewClose<CR>", opt)
+map("n", "<C-d>f", ":DiffviewFileHistory<CR>", opt)
 
 return pluginKeys
