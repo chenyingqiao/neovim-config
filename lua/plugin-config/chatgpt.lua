@@ -1,6 +1,6 @@
 require("chatgpt").setup({
 	keymaps = {
-		close = { "q" },
+		close = { "<ESC>" },
 		yank_last = "<C-y>",
 		scroll_up = "<C-k>",
 		scroll_down = "<C-j>",
