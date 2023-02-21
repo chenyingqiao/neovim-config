@@ -212,6 +212,7 @@ pluginKeys.mapVimspector = function()
   map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
   -- 查看断点列表
   map("n", "<leader>db", "<Plug>VimspectorBreakpoints", opt)
+  map("n", "<leader>dv", "<Plug>VimspectorBalloonEval", opt)
 end
 
 
