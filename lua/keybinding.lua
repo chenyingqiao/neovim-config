@@ -56,8 +56,8 @@ map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
--- map("i", "<C-h>", "<ESC>I", opt)
--- map("i", "<C-l>", "<ESC>A", opt)
+map("i", "<C-h>", "<ESC>I", opt)
+map("i", "<C-l>", "<ESC>A", opt)
 
 ------------------------------------------------------------------
 -- windows 分屏快捷键
@@ -66,26 +66,26 @@ map("n", "<leader>q", ":qa!<CR>", opt)
 map("n", "<C-w>v", ":vsp<CR>", opt)
 map("n", "<C-w>h", ":sp<CR>", opt)
 -- 关闭当前
--- map("n", "sc", "<C-w>c", opt)
+map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
--- map("n", "so", "<C-w>o", opt) -- close others
+map("n", "so", "<C-w>o", opt) -- close others
 -- <leader> + hjkl 窗口之间跳转
 map("n", "<leader>h", "<C-w>h", opt)
 map("n", "<leader>j", "<C-w>j", opt)
 map("n", "<leader>k", "<C-w>k", opt)
 map("n", "<leader>l", "<C-w>l", opt)
--- 左右比例控制
-map("n", "<M-Left>", ":vertical resize -2<CR>", opt)
-map("n", "<M-Right>", ":vertical resize +2<CR>", opt)
--- 上下比例
-map("n", "<M-Up>", ":resize +2<CR>", opt)
-map("n", "<M-Down>", ":resize -2<CR>", opt)
 -- 相等比例
-map("n", "s=", "<C-w>=", opt)
-
+map("n", "sg", "<C-w>=", opt)
+map("n", "sf", "<C-w>_<C-w>|", opt)
+-- 调整上下比利
+map("n", "sj", ":resize +10<CR>", opt)
+map("n", "sk", ":resize -10<CR>", opt)
+-- 调整左右比利
+map("n", "sl", ":vertical resize -10<CR>", opt)
+map("n", "sh", ":vertical resize +10<CR>", opt)
 -- Terminal相关
--- map("n", "st", ":sp | terminal<CR>", opt)
--- map("n", "stv", ":vsp | terminal<CR>", opt)
+map("n", "st", ":sp | terminal<CR>", opt)
+map("n", "stv", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 map("t", "<M-h>", [[ <C-\><C-N><C-w>h ]], opt)
@@ -102,8 +102,8 @@ map("n", "Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>tm", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
+map("n", "<leader>fk", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>fj", ":NvimTreeFocus<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>" }, action = "edit" },
@@ -207,11 +207,14 @@ pluginKeys.mapVimspector = function()
   map("n", "<Leader>dT", ":call vimspector#ClearBreakpoints()<CR>", opt)
   --  stepOver, stepOut, stepInto
   map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
+  map("n", "<F5>", "<Plug>VimspectorStepOver", opt)
   map("n", "<leader>do", "<Plug>VimspectorStepOut", opt)
   map("n", "<leader>di", "<Plug>VimspectorStepInto", opt)
   map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
   -- 查看断点列表
   map("n", "<leader>db", "<Plug>VimspectorBreakpoints", opt)
+  map("n", "<leader>dr", ":call vimspector#SetCurrentThread()<CR>", opt)
+  map("n", "<leader>dp", ":call vimspector#PauseContinueThread()<CR>", opt)
   map("n", "<leader>dv", "<Plug>VimspectorBalloonEval", opt)
 end
 

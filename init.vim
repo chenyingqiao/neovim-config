@@ -43,6 +43,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'jackMort/ChatGPT.nvim'
 	Plug 'MunifTanjim/nui.nvim'
+	Plug 'moll/vim-bbye'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
