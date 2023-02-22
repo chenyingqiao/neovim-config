@@ -56,8 +56,12 @@ map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
-map("i", "<C-h>", "<ESC>I", opt)
-map("i", "<C-l>", "<ESC>A", opt)
+map("i", "<C-h>", "<Left>", opt)
+map("i", "<C-l>", "<Right>", opt)
+map("i", "<C-j>", "<Down>", opt)
+map("i", "<C-k>", "<Up>", opt)
+map("i", "<C-e>", "<S-Right>", opt)
+map("i", "<C-b>", "<S-Left>", opt)
 
 ------------------------------------------------------------------
 -- windows 分屏快捷键
@@ -81,8 +85,8 @@ map("n", "sf", "<C-w>_<C-w>|", opt)
 map("n", "sj", ":resize +10<CR>", opt)
 map("n", "sk", ":resize -10<CR>", opt)
 -- 调整左右比利
-map("n", "sl", ":vertical resize -10<CR>", opt)
-map("n", "sh", ":vertical resize +10<CR>", opt)
+map("n", "sh", ":vertical resize -10<CR>", opt)
+map("n", "sl", ":vertical resize +10<CR>", opt)
 -- Terminal相关
 map("n", "st", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
