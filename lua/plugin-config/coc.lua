@@ -82,7 +82,7 @@ keyset("n", "<C-S-f>", "<Plug>(coc-format-selected)", {silent = true})
 -- Setup formatexpr specified filetype(s)
 vim.api.nvim_create_autocmd("FileType", {
     group = "CocGroup",
-    pattern = "typescript,json",
+    pattern = "typescript,json,go,py",
     command = "setl formatexpr=CocAction('formatSelected')",
     desc = "Setup formatexpr specified filetype(s)."
 })
@@ -150,7 +150,6 @@ keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
-
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
 

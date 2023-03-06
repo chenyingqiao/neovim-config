@@ -1,3 +1,3 @@
 require("auto-save").setup{
-  enabled = true,
+	enabled = true,
 }
