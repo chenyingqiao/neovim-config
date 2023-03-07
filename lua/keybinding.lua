@@ -292,14 +292,14 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "Pick a window" })
 
 -- Run gofmt + goimport on save
-local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-   golangFormat.goimport()
-  end,
-  group = format_sync_grp,
-})
+-- local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*.go",
+--   callback = function()
+--    golangFormat.goimport()
+--   end,
+--   group = format_sync_grp,
+-- })
 
 map("n", "<C-v>f", ":Format<CR>", opt)
 map("n", "<C-v>i", ":OR<CR>", opt)
