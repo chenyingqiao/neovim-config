@@ -200,5 +200,3 @@ keyset("n", "<C-v>s", ":<C-u>CocList -I symbols<cr>", opts)
 --
 -- " Use <C-j> for select text for visual placeholder of snippet.
 -- vmap <C-j> <Plug>(coc-snippets-select)
-
-keyset("i", "<C-v>", ":<C-u>CocList -I symbols<cr>", opts)

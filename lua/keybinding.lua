@@ -91,11 +91,11 @@ map("n", "sl", ":vertical resize +10<CR>", opt)
 map("n", "st", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<M-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<M-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<M-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<M-l>", [[ <C-\><C-N><C-w>l ]], opt)
+map("t", "<leader>n", "<C-\\><C-n>", opt)
+-- map("t", "<M-h>", [[ <C-\><C-N><C-w>h ]], opt)
+-- map("t", "<M-j>", [[ <C-\><C-N><C-w>j ]], opt)
+-- map("t", "<M-k>", [[ <C-\><C-N><C-w>k ]], opt)
+-- map("t", "<M-l>", [[ <C-\><C-N><C-w>l ]], opt)
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}
@@ -148,7 +148,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
-map("n", "<leader>bc", ":Bdelete!<CR>", opt)
+map("n", "<leader>xn", ":Bdelete!<CR>", opt)
 -- map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
 map("n", "<leader>xl", ":BufferLineCloseLeft<CR>", opt)
@@ -230,7 +230,7 @@ end
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n", "t" }, "<C-t>", toggleterm.toggleC)
+  vim.keymap.set({ "n", "t" }, "<leader>to", toggleterm.toggleA)
   vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
