@@ -230,7 +230,7 @@ end
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n", "t" }, "<leader>to", toggleterm.toggleA)
+  vim.keymap.set({ "n" }, "<leader>to", toggleterm.toggleB)
   vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
