@@ -150,12 +150,12 @@ keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "CocGroup",
-    pattern = {"*.go","*.py"},
-    command = "call CocAction('format')",
-    desc = "auto format"
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     group = "CocGroup",
+--     pattern = {"*.go","*.py"},
+--     command = "call CocAction('format')",
+--     desc = "auto format"
+-- })
 
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
