@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jackMort/ChatGPT.nvim'
 	Plug 'MunifTanjim/nui.nvim'
 	Plug 'moll/vim-bbye'
+	Plug 'akinsho/git-conflict.nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -70,4 +71,5 @@ lua require('plugin-config/indent-blankline')
 lua require('plugin-config/dashboard')
 lua require('plugin-config/mundo')
 lua require('plugin-config/chatgpt')
+lua require('plugin-config/git-conflict')
 " lua require('plugin-config/neoscroll')

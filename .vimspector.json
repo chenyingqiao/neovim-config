@@ -7,7 +7,13 @@
         "request": "launch",
         "program": "${workspaceFolder}",
         "mode": "debug",
-        "env": {}
+        "env": {
+			"GO_ENV":"dev",
+			"APOLLO_META_SERVER_URL": "http://120.77.148.214:18011",
+			"APOLLO_ACCESSKEY_SECRET": "cee95a1a34304e118343b53af7b1e58d",
+			"ETCDV3_SERVER_URLS": "http://10.11.48.15:49158",
+			"ELASTIC_APM_SERVER_URL": "http://127.0.0.1:8200"
+		}
       }
     },
     "run-unittest": {
