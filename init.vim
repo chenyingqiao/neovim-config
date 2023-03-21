@@ -25,7 +25,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lewis6991/gitsigns.nvim' " git差异显示和提交信息显示
 	Plug 's1n7ax/nvim-window-picker' " 窗口选择
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'ray-x/go.nvim'
 	Plug 'ray-x/guihua.lua' 
 	Plug 'nvim-lualine/lualine.nvim'
 	" If you want to have icons in your statusline choose one of these
@@ -45,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'MunifTanjim/nui.nvim'
 	Plug 'moll/vim-bbye'
 	Plug 'akinsho/git-conflict.nvim'
+	Plug 'folke/persistence.nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -61,7 +61,6 @@ lua require('plugin-config/flit')
 lua require('plugin-config/gitsigns')
 lua require('plugin-config/vimspector')
 lua require('plugin-config/windows-picker')
-lua require('plugin-config/golang')
 lua require('plugin-config/lualine')
 lua require('plugin-config/surround')
 lua require('plugin-config/telescope')
@@ -70,6 +69,6 @@ lua require('plugin-config/autosave')
 lua require('plugin-config/indent-blankline')
 lua require('plugin-config/dashboard')
 lua require('plugin-config/mundo')
-lua require('plugin-config/chatgpt')
 lua require('plugin-config/git-conflict')
+lua require('plugin-config/persistence')
 " lua require('plugin-config/neoscroll')

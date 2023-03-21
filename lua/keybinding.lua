@@ -53,7 +53,7 @@ map("v", "p", '"_dP', opt)
 
 -- 退出
 map("n", "qq", ":q!<CR>", opt)
-map("n", "<leader>q", ":qa!<CR>", opt)
+-- map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
 map("i", "<C-h>", "<Left>", opt)
@@ -91,7 +91,7 @@ map("n", "sl", ":vertical resize +10<CR>", opt)
 map("n", "st", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
-map("t", "<leader>n", "<C-\\><C-n>", opt)
+map("t", "<Esc>", "<C-\\><C-n>", opt)
 -- map("t", "<M-h>", [[ <C-\><C-N><C-w>h ]], opt)
 -- map("t", "<M-j>", [[ <C-\><C-N><C-w>j ]], opt)
 -- map("t", "<M-k>", [[ <C-\><C-N><C-w>k ]], opt)
@@ -314,5 +314,12 @@ map("n", "<C-d>f", ":DiffviewFileHistory<CR>", opt)
 map("n", "<leader>tw", ":TranslateW<CR>", opt)
 map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
+-- 工作session
+-- restore the session for the current directory
+vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
+-- restore the last session
+vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
 
 return pluginKeys
