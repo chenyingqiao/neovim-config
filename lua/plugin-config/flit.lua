@@ -1,5 +1,5 @@
 require('flit').setup {
-  keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+  keys = { f = 'f', F = 't', t = 'F', T = 'T' },
   -- A string like "nv", "nvo", "o", etc.
   labeled_modes = "nvo",
   multiline = true,
