@@ -10,7 +10,7 @@ telescope.setup{
       theme = "dropdown",
       order_by = "asc",
       search_by = "title",
-      sync_with_nvim_tree = true, -- default false
+      sync_with_nvim_tree = false, -- default false
     }
   }
 }

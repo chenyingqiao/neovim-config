@@ -52,7 +52,7 @@ map("v", "<M-Up>", ":move '<-2<CR>gv-gv", opt)
 map("v", "p", '"_dP', opt)
 
 -- 退出
-map("n", "qq", ":q!<CR>", opt)
+-- map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>qq", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
@@ -67,9 +67,9 @@ map("i", "<C-b>", "<S-Left>", opt)
 -- windows 分屏快捷键
 ------------------------------------------------------------------
 -- 取消 s 默认功能
-map("n", "<C-w>v", ":vsp<CR>", opt)
-map("n", "<C-w>h", ":sp<CR>", opt)
--- 关闭当前
+map("n", "s", "", opt)
+map("n", "sv", ":vsp<CR>", opt)
+map("n", "ss", ":sp<CR>", opt)
 map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt) -- close others
@@ -160,7 +160,9 @@ map("n", "<leader>xx", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>fb", ":Telescope buffers<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
@@ -231,6 +233,7 @@ end
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
   vim.keymap.set({ "n" }, "<leader>to", toggleterm.toggleB)
+  vim.keymap.set({ "n" }, "<leader>tf", toggleterm.toggleA)
   vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
@@ -310,6 +313,7 @@ map("n", "<C-d>t", ":DiffviewOpen test<CR>", opt)
 map("n", "<C-d>r", ":DiffviewOpen release<CR>", opt)
 map("n", "<C-d>c", ":DiffviewClose<CR>", opt)
 map("n", "<C-d>f", ":DiffviewFileHistory<CR>", opt)
+map("n", "<C-c>l", ":GitConflictListQf<CR>", opt)
 
 map("n", "<leader>tw", ":TranslateW<CR>", opt)
 map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
@@ -317,8 +321,6 @@ map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 -- 工作session
 -- restore the session for the current directory
 vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
--- restore the last session
-vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 -- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
 
