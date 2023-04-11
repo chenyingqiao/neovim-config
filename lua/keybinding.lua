@@ -163,6 +163,10 @@ map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>fb", ":Telescope buffers<CR>", opt)
+map("n", "<leader>fr", ":Telescope grep_string<CR>", opt)
+map("n", "<leader>fib", ":Telescope git_branches<CR>", opt)
+map("n", "<leader>fis", ":Telescope git_status<CR>", opt)
+map("n", "<leader>fit", ":Telescope git_stash<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
