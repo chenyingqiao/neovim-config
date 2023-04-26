@@ -40,7 +40,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'glepnir/dashboard-nvim'
 	Plug 'simnalamburt/vim-mundo'
 	Plug 'karb94/neoscroll.nvim'
-	Plug 'jackMort/ChatGPT.nvim'
 	Plug 'MunifTanjim/nui.nvim'
 	Plug 'moll/vim-bbye'
 	Plug 'akinsho/git-conflict.nvim'

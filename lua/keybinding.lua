@@ -316,7 +316,7 @@ map("n", "<C-d>m", ":DiffviewOpen master<CR>", opt)
 map("n", "<C-d>t", ":DiffviewOpen test<CR>", opt)
 map("n", "<C-d>r", ":DiffviewOpen release<CR>", opt)
 map("n", "<C-d>c", ":DiffviewClose<CR>", opt)
-map("n", "<C-d>f", ":DiffviewFileHistory<CR>", opt)
+map("n", "<C-d>f", ":DiffviewFileHistory %<CR>", opt)
 map("n", "<C-c>l", ":GitConflictListQf<CR>", opt)
 
 map("n", "<leader>tw", ":TranslateW<CR>", opt)
