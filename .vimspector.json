@@ -1,6 +1,23 @@
 {
   "configurations": {
-    "run": {
+	"launch": {
+      "adapter": "CodeLLDB",
+      "filetypes": [ "rust" ],
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/target/debug/vimspector_test"
+      }
+    },
+    "attach": {
+      "adapter": "CodeLLDB",
+      "filetypes": [ "rust", "c", "cpp", "jai" ],
+      "configuration": {
+        "request": "attach",
+        "program": "${workspaceRoot}/${fileBasenameNoExtension}",
+        "PID": "${PID}"
+      }
+    },
+	"run": {
       "adapter": "delve",
       "variables": {},
       "configuration": {
