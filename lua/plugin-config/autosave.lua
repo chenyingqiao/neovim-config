@@ -15,7 +15,7 @@ require("auto-save").setup{
 	end
     if fn.getbufvar(buf, "&modifiable") == 1 and
       -- 判断是否需要自动保存
-      file_extension == ".txt" or file_extension == ".text" then
+      file_extension ~= ".txt" or file_extension ~= ".text" then
       return true -- met condition(s), can save
     end
     return false -- can't save
