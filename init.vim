@@ -44,6 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'moll/vim-bbye'
 	Plug 'akinsho/git-conflict.nvim'
 	Plug 'folke/persistence.nvim'
+	Plug 'MunifTanjim/nui.nvim'
+	Plug 'VonHeikemen/fine-cmdline.nvim'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
