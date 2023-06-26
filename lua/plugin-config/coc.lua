@@ -161,12 +161,12 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {na
 
 -- Add `:OR` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "CocGroup",
-    pattern = {"*.go","*.py"},
-    command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
-    desc = "auto import"
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     group = "CocGroup",
+--     pattern = {"*.go","*.py"},
+--     command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
+--     desc = "auto import"
+-- })
 
 -- Add (Neo)Vim's native statusline support
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -184,7 +184,7 @@ keyset("n", "<C-v>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands
 keyset("n", "<C-v>c", ":<C-u>CocList commands<cr>", opts)
 -- Find symbol of current document
-keyset("n", "<C-v>o", ":<C-u>CocList outline<cr>", opts)
+keyset("n", "<C-v>o", ":<C-u>CocOutline<cr>", opts)
 -- Search workspace symbol
 keyset("n", "<C-v>s", ":<C-u>CocList -I symbols<cr>", opts)
 -- Do default action for next item
