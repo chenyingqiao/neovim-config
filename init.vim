@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'folke/persistence.nvim'
 	Plug 'MunifTanjim/nui.nvim'
 	Plug 'VonHeikemen/fine-cmdline.nvim'
+	Plug 'jiangmiao/auto-pairs'
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
