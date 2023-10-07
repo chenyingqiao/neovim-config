@@ -149,7 +149,7 @@ keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
-vim.api.nvim_create_autocmd("BufWinLeave", {
+vim.api.nvim_create_autocmd("CompleteDone", {
     group = "CocGroup",
     pattern = {"*.go","*.py"},
     command = "call CocAction('format')",
@@ -161,12 +161,12 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {na
 
 -- Add `:OR` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
-vim.api.nvim_create_autocmd("BufWinLeave", {
-    group = "CocGroup",
-    pattern = {"*.go","*.py"},
-    command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
-    desc = "auto import"
-})
+-- vim.api.nvim_create_autocmd("CompleteDone", {
+--     group = "CocGroup",
+--     pattern = {"*.go","*.py"},
+--     command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
+--     desc = "auto import"
+-- })
 
 -- Add (Neo)Vim's native statusline support
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
