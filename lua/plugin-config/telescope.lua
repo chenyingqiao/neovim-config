@@ -1,15 +1,20 @@
 telescope = require("telescope")
 telescope.setup{
+  defaults = { 
+    file_ignore_patterns = {
+      "node_modules",
+	  ".git/", ".cache", "%.o", "%.a", "%.out", "%.class",
+		"%.pdf", "%.mkv", "%.mp4", "%.zip"
+    }
+  },
   extensions = {
     project = {
       base_dirs = {
         {'~/developer-env', max_depth = 3},
         {'~/.config', max_depth = 3},
       },
-      hidden_files = true, -- default: false
+      hidden_files = false, -- default: false
       theme = "dropdown",
-      order_by = "asc",
-      search_by = "title",
       sync_with_nvim_tree = false, -- default false
     }
   }

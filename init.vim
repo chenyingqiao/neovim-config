@@ -50,6 +50,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'MunifTanjim/nui.nvim'
 	Plug 'rcarriga/nvim-notify'
 	Plug 'folke/noice.nvim'
+	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
@@ -77,4 +78,5 @@ lua require('plugin-config/mundo')
 lua require('plugin-config/git-conflict')
 lua require('plugin-config/persistence')
 lua require('plugin-config/notice')
+lua require('plugin-config/minimap')
 " lua require('plugin-config/neoscroll')

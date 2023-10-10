@@ -121,6 +121,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   -- Hide (dotfiles)
   { key = ".", action = "toggle_dotfiles" },
   { key = "R", action = "refresh" },
+  { key = "K", action = "show_info_popup" },
   -- 文件操作
   { key = "a", action = "create" },
   { key = "d", action = "remove" },
