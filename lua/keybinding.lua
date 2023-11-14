@@ -321,6 +321,7 @@ map("n", "<C-d>f", ":DiffviewFileHistory %<CR>", opt)
 map("n", "<C-c>l", ":GitConflictListQf<CR>", opt)
 
 map("n", "<leader>tw", ":TranslateW<CR>", opt)
+map("v", "<leader>tr", ":TranslateR<CR>", opt)
 map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
 -- 工作session
