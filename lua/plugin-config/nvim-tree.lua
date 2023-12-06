@@ -102,8 +102,28 @@ local function on_attach(bufnr)
 
 end
 
+local SORT_METHODS = {
+  "name",
+  "case_sensitive",
+  "modification_time",
+  "extension",
+}
+local sort_current = 1
+
+local cycle_sort = function()
+  if sort_current >= #SORT_METHODS then
+    sort_current = 1
+  else
+    sort_current = sort_current + 1
+  end
+  api.tree.reload()
+end
+
+local sort_by = function()
+  return SORT_METHODS[sort_current]
+end
 nvim_tree.setup({
-  -- 完全禁止内置netrw
+  sort_by = sort_by,  -- 完全禁止内置netrw
   disable_netrw = true,
   -- 不显示 git 状态图标
   git = {
