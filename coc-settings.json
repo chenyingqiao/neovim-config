@@ -8,5 +8,7 @@
     }
   },
   "snippets.ultisnips.pythonPrompt": false,
-  "coc.preferences.formatOnSave": false
+  "coc.preferences.formatOnSave": false,
+  "diagnostic.refreshOnInsertMode": true,
+  "suggest.triggerCompletionWait": 0
 }
