@@ -53,6 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+	Plug 'xiyaowong/transparent.nvim'
 call plug#end()
 
 lua require('basic')
@@ -79,4 +80,5 @@ lua require('plugin-config/git-conflict')
 lua require('plugin-config/persistence')
 lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
+lua require('plugin-config/transparent')
 " lua require('plugin-config/neoscroll')
