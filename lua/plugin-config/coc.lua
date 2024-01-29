@@ -155,6 +155,12 @@ vim.api.nvim_create_autocmd("TabLeave", {
     command = "call CocActionAsync('format')",
     desc = "auto format"
 })
+vim.api.nvim_create_autocmd("BufLeave", {
+    group = "CocGroup",
+    pattern = {"*.go","*.py"},
+    command = "call CocActionAsync('format')",
+    desc = "auto format"
+})
 
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
@@ -162,6 +168,12 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {na
 -- Add `:OR` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 vim.api.nvim_create_autocmd("TabLeave", {
+    group = "CocGroup",
+    pattern = {"*.go","*.py"},
+    command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
+    desc = "auto import"
+})
+vim.api.nvim_create_autocmd("BufLeave", {
     group = "CocGroup",
     pattern = {"*.go","*.py"},
     command = "call CocActionAsync('runCommand', 'editor.action.organizeImport')",
