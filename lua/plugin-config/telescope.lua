@@ -23,3 +23,6 @@ telescope.load_extension('project')
 vim.keymap.set("n","<leader>p",function()
   telescope.extensions.project.project{}
 end,{noremap = true, silent = true})
+vim.keymap.set("n","<leader>nl",function()
+  telescope.extensions.notify.notify{}
+end,{noremap = true, silent = true})
