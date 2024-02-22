@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' } " 打开文件标签页
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " vscode 提示插件
 	Plug 'nvim-lua/plenary.nvim' " 
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " 全局搜索插件
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' } " 全局搜索插件
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " 代码高亮美化
 	Plug 'puremourning/vimspector' " debug工具
 	Plug 'tanvirtin/vgit.nvim'
