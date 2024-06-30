@@ -76,9 +76,9 @@ go install golang.org/x/tools/gopls@latest
 
 # 安装插件
 echo "====================================================开始安装nvim插件===================================================="
-nvim --noplugin --headless -c "PlugInstall"
-nvim --noplugin -c "TSUpdate"
-nvim --noplugin -c "CocInstall coc-go coc-pyright"
-nvim --noplugin -c "CocCommand go.install.tools"
-nvim --noplugin -c "VimspectorInstall delve"
-nvim --noplugin -c "VimspectorInstall debugpy"
+nvim  --headless -c "PlugInstall"
+nvim  -c "TSUpdate"
+nvim  -c "CocInstall coc-go coc-pyright"
+nvim  -c "CocCommand go.install.tools"
+nvim  -c "VimspectorInstall delve"
+nvim  -c "VimspectorInstall debugpy"
