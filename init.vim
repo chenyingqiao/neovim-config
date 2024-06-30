@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'morhetz/gruvbox'
 	Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 	Plug 'nvim-tree/nvim-tree.lua' " 文件树插件
-	Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' } " 打开文件标签页
+	Plug 'akinsho/bufferline.nvim' " 打开文件标签页
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " vscode 提示插件
 	Plug 'nvim-lua/plenary.nvim' " 
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' } " 全局搜索插件
