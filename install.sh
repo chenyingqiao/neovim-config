@@ -61,6 +61,7 @@ wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar
 fi
 tar -zxvf nvim-linux64.tar.gz
 cp -r nvim-linux64/. /home/$USER/.local/
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # 安装golang
 echo "====================================================安装golang===================================================="
@@ -82,27 +83,3 @@ nvim --noplugin -c "CocCommand go.install.tools"
 nvim --noplugin -c "VimspectorInstall delve"
 nvim --noplugin -c "VimspectorInstall debugpy"
 
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-lua require('basic')
-lua require('theme')
-lua require('keybinding')
-lua require('plugin-config/coc')
-lua require('plugin-config/nvim-tree')
-lua require('plugin-config/bufferline')
-lua require('plugin-config/toggleterm')
-lua require('plugin-config/comment')
-lua require('plugin-config/flit')
-lua require('plugin-config/gitsigns')
-lua require('plugin-config/vimspector')
-lua require('plugin-config/windows-picker')
-lua require('plugin-config/lualine')
-lua require('plugin-config/surround')
-lua require('plugin-config/telescope')
-lua require('plugin-config/treesitter')
-lua require('plugin-config/autosave')
-lua require('plugin-config/indent-blankline')
-lua require('plugin-config/dashboard')
-lua require('plugin-config/mundo')
-lua require('plugin-config/git-conflict')
-lua require('plugin-config/persistence')
