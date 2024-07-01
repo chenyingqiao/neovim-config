@@ -1,3 +1,14 @@
 autoload
 ftplugin
 plugged
+CodeNewRoman
+go
+go1.20.5.linux-amd64.*
+install-init.lua
+lazygit
+lazygit.tar.gz
+license.txt
+node-v18.16.0-linux-x64.*
+node-v18.16.0-linux-x64
+nvim-linux64.tar.*
+nvim-linux64/
