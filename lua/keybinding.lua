@@ -309,6 +309,8 @@ end, { desc = "Pick a window" })
 --   group = format_sync_grp,
 -- })
 
+map("n", "<leader>f", ":Format<CR>", opt)
+map("n", "<leader>i", ":OR<CR>", opt)
 map("n", "<C-v>f", ":Format<CR>", opt)
 map("n", "<C-v>i", ":OR<CR>", opt)
 map("n", "<C-a>n", ":ChatGPT<CR>", opt)
