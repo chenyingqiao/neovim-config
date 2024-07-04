@@ -11,5 +11,5 @@
   "coc.preferences.formatOnSave": false,
   "diagnostic.refreshOnInsertMode": true,
   "suggest.triggerCompletionWait": 0,
-  "coc.preferences.jumpCommand": "tabedit"
+  "coc.preferences.jumpCommand": "edit"
 }
