@@ -29,7 +29,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lualine/lualine.nvim'
 	" If you want to have icons in your statusline choose one of these
 	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'nvim-lua/plenary.nvim'
 	Plug 'sindrets/diffview.nvim'
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 	Plug 'nvim-telescope/telescope-project.nvim'
@@ -44,13 +43,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'moll/vim-bbye'
 	Plug 'akinsho/git-conflict.nvim'
 	Plug 'folke/persistence.nvim'
-	Plug 'MunifTanjim/nui.nvim'
 	Plug 'VonHeikemen/fine-cmdline.nvim'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'MunifTanjim/nui.nvim'
 	Plug 'rcarriga/nvim-notify'
 	Plug 'folke/noice.nvim'
 	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+	" leetcode.nvim
+	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }
 	" 主题
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 	Plug 'xiyaowong/transparent.nvim'
