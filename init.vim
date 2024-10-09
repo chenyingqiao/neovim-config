@@ -48,6 +48,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'rcarriga/nvim-notify'
 	Plug 'folke/noice.nvim'
 	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+	Plug 'LunarVim/bigfile.nvim'
+    Plug 'tpope/vim-fugitive'
 	" leetcode.nvim
 	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }
 	" 主题
@@ -80,4 +82,5 @@ lua require('plugin-config/persistence')
 lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
 lua require('plugin-config/transparent')
+" lua require("plugin-config/dap-ui")
 " lua require('plugin-config/neoscroll')

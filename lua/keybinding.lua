@@ -326,6 +326,8 @@ map("n", "<leader>tw", ":TranslateW<CR>", opt)
 map("v", "<leader>tr", ":TranslateR<CR>", opt)
 map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
+-- vim-fugitive git 插件
+
 -- 工作session
 -- restore the session for the current directory
 vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
