@@ -49,7 +49,24 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'folke/noice.nvim'
 	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 	Plug 'LunarVim/bigfile.nvim'
-    Plug 'tpope/vim-fugitive'
+    	Plug 'tpope/vim-fugitive'
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+	
+	" Deps
+	Plug 'stevearc/dressing.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'MunifTanjim/nui.nvim'
+	Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+	" Optional deps
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'echasnovski/mini.icons'
+	Plug 'HakonHarnes/img-clip.nvim'
+	Plug 'zbirenbaum/copilot.lua'
+
+	" Yay, pass source=true if you want to build from source
+	Plug 'yetone/avante.nvim'
+
 	" leetcode.nvim
 	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }
 	" 主题
@@ -82,5 +99,6 @@ lua require('plugin-config/persistence')
 lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
 lua require('plugin-config/transparent')
+lua require('plugin-config/avante')
 " lua require("plugin-config/dap-ui")
 " lua require('plugin-config/neoscroll')

@@ -11,5 +11,5 @@
   "coc.preferences.formatOnSave": false,
   "diagnostic.refreshOnInsertMode": true,
   "suggest.triggerCompletionWait": 0,
-  "coc.preferences.jumpCommand": "edit"
+  "coc.preferences.jumpCommand": "edit",
 }
