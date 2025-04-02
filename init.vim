@@ -49,8 +49,11 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'folke/noice.nvim'
 	Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 	Plug 'LunarVim/bigfile.nvim'
-    	Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
+	Plug 'robitx/gp.nvim'
+	Plug 'supermaven-inc/supermaven-nvim'
 	
 	" Deps
 	Plug 'stevearc/dressing.nvim'
@@ -100,5 +103,7 @@ lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
 lua require('plugin-config/transparent')
 lua require('plugin-config/avante')
+lua require('plugin-config/gp')
+lua require('plugin-config/supermaven')
 " lua require("plugin-config/dap-ui")
 " lua require('plugin-config/neoscroll')
