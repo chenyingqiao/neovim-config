@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM hub.rat.dev/ubuntu
 
 WORKDIR /root/download
 COPY . /root/.config/nvim/
@@ -9,6 +9,7 @@ RUN apt-get update
 RUN apt-get install -y curl wget git unzip zsh
 RUN apt-get install -y python3 pip
 RUN apt-get install -y tmux
+RUN apt-get install -y fd-find ripgrep fzf
 RUN pip install neovim
 RUN curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v0.40.2/lazygit_0.40.2_Linux_x86_64.tar.gz"
 RUN tar xf lazygit.tar.gz lazygit
@@ -53,10 +54,10 @@ RUN cp -r node-v18.16.0-linux-x64/* ~/.local/
 RUN wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 RUN tar -zxvf nvim-linux64.tar.gz
 RUN cp -r nvim-linux64/. /root/.local/
-RUN nvim -c ":CocInstall coc-go coc-pyright" -c ":qa"
-RUN nvim -c ":CocCommand go.install.tools" -c ":qa"
-RUN nvim -c ":VimspectorInstall delve" -c ":qa"
-RUN nvim -c ":VimspectorInstall debugpy" -c ":qa" 
+# RUN nvim -c ":CocInstall coc-go coc-pyright" -c ":qa"
+# RUN nvim -c ":CocCommand go.install.tools" -c ":qa"
+# RUN nvim -c ":VimspectorInstall delve" -c ":qa"
+# RUN nvim -c ":VimspectorInstall debugpy" -c ":qa" 
 
 # 安装golang
 RUN wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz
