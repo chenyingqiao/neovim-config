@@ -11,8 +11,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local opt = {
-  noremap = true,
-  silent = true,
+	noremap = true,
+	silent = true,
 }
 
 -- 本地变量
@@ -110,39 +110,39 @@ map("n", "<leader>fk", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>fj", ":NvimTreeFocus<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
-  { key = { "o", "<2-LeftMouse>" }, action = "edit" },
-  { key = "<CR>", action = "system_open" },
-  -- v分屏打开文件
-  { key = "v", action = "vsplit" },
-  -- h分屏打开文件
-  { key = "h", action = "split" },
-  -- Ignore (node_modules)
-  { key = "i", action = "toggle_ignored" },
-  -- Hide (dotfiles)
-  { key = ".", action = "toggle_dotfiles" },
-  { key = "R", action = "refresh" },
-  { key = "K", action = "show_info_popup" },
-  -- 文件操作
-  { key = "a", action = "create" },
-  { key = "d", action = "remove" },
-  { key = "r", action = "rename" },
-  { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
-  { key = "p", action = "paste" },
-  { key = "y", action = "copy_name" },
-  { key = "Y", action = "copy_path" },
-  { key = "gy", action = "copy_absolute_path" },
-  { key = "I", action = "toggle_file_info" },
-  { key = "n", action = "tabnew" },
-  { key = "S", action = "search_node" },
-  { key = "E", action = "expand_all" },
-  { key = "F", action = "clear_live_filter" },
-  { key = "f", action = "live_filter" },
-  { key = "W", action = "collapse_all" },
-  -- 进入下一级
-  { key = { "]" }, action = "cd" },
-  -- 进入上一级
-  { key = { "[" }, action = "dir_up" },
+	{ key = { "o", "<2-LeftMouse>" }, action = "edit" },
+	{ key = "<CR>",                   action = "system_open" },
+	-- v分屏打开文件
+	{ key = "v",                      action = "vsplit" },
+	-- h分屏打开文件
+	{ key = "h",                      action = "split" },
+	-- Ignore (node_modules)
+	{ key = "i",                      action = "toggle_ignored" },
+	-- Hide (dotfiles)
+	{ key = ".",                      action = "toggle_dotfiles" },
+	{ key = "R",                      action = "refresh" },
+	{ key = "K",                      action = "show_info_popup" },
+	-- 文件操作
+	{ key = "a",                      action = "create" },
+	{ key = "d",                      action = "remove" },
+	{ key = "r",                      action = "rename" },
+	{ key = "x",                      action = "cut" },
+	{ key = "c",                      action = "copy" },
+	{ key = "p",                      action = "paste" },
+	{ key = "y",                      action = "copy_name" },
+	{ key = "Y",                      action = "copy_path" },
+	{ key = "gy",                     action = "copy_absolute_path" },
+	{ key = "I",                      action = "toggle_file_info" },
+	{ key = "n",                      action = "tabnew" },
+	{ key = "S",                      action = "search_node" },
+	{ key = "E",                      action = "expand_all" },
+	{ key = "F",                      action = "clear_live_filter" },
+	{ key = "f",                      action = "live_filter" },
+	{ key = "W",                      action = "collapse_all" },
+	-- 进入下一级
+	{ key = { "]" },                  action = "cd" },
+	-- 进入上一级
+	{ key = { "[" },                  action = "dir_up" },
 }
 -- bufferline
 -- 左右Tab切换
@@ -170,63 +170,63 @@ map("n", "<leader>fis", ":Telescope git_status<CR>", opt)
 map("n", "<leader>fit", ":Telescope git_stash<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
-  i = {
-    -- 上下移动
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    ["<C-n>"] = "move_selection_next",
-    ["<C-p>"] = "move_selection_previous",
-    -- 历史记录
-    -- ["<Down>"] = "cycle_history_next",
-    -- ["<Up>"] = "cycle_history_prev",
-    -- 关闭窗口
-    -- ["<esc>"] = actions.close,
-    ["<C-c>"] = "close",
-    -- 预览窗口上下滚动
-    ["<C-u>"] = "preview_scrolling_up",
-    ["<C-d>"] = "preview_scrolling_down",
-  },
+	i = {
+		-- 上下移动
+		["<C-j>"] = "move_selection_next",
+		["<C-k>"] = "move_selection_previous",
+		["<C-n>"] = "move_selection_next",
+		["<C-p>"] = "move_selection_previous",
+		-- 历史记录
+		-- ["<Down>"] = "cycle_history_next",
+		-- ["<Up>"] = "cycle_history_prev",
+		-- 关闭窗口
+		-- ["<esc>"] = actions.close,
+		["<C-c>"] = "close",
+		-- 预览窗口上下滚动
+		["<C-u>"] = "preview_scrolling_up",
+		["<C-d>"] = "preview_scrolling_down",
+	},
 }
 
 -- 代码注释插件
 -- see ./lua/plugin-config/comment.lua
 pluginKeys.comment = {
-  -- Normal 模式快捷键
-  toggler = {
-    line = "gcc", -- 行注释
-    block = "gbc", -- 块注释
-  },
-  -- Visual 模式
-  opleader = {
-    line = "gc",
-    bock = "gb",
-  },
+	-- Normal 模式快捷键
+	toggler = {
+		line = "gcc", -- 行注释
+		block = "gbc", -- 块注释
+	},
+	-- Visual 模式
+	opleader = {
+		line = "gc",
+		bock = "gb",
+	},
 }
 -- ctrl + /
 map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 -- vimspector
 pluginKeys.mapVimspector = function()
-  -- 开始
-  map("n", "<leader>dd", ":call vimspector#Launch()<CR>", opt)
-  -- 结束
-  map("n", "<Leader>de", ":call vimspector#Reset()<CR>", opt)
-  -- 继续
-  map("n", "<Leader>dc", ":call vimspector#Continue()<CR>", opt)
-  -- 设置断点
-  map("n", "<Leader>dt", ":call vimspector#ToggleBreakpoint()<CR>", opt)
-  map("n", "<Leader>dT", ":call vimspector#ClearBreakpoints()<CR>", opt)
-  --  stepOver, stepOut, stepInto
-  map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
-  map("n", "<F5>", "<Plug>VimspectorStepOver", opt)
-  map("n", "<leader>do", "<Plug>VimspectorStepOut", opt)
-  map("n", "<leader>di", "<Plug>VimspectorStepInto", opt)
-  map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
-  -- 查看断点列表
-  map("n", "<leader>db", "<Plug>VimspectorBreakpoints", opt)
-  map("n", "<leader>dr", ":call vimspector#SetCurrentThread()<CR>", opt)
-  map("n", "<leader>dp", ":call vimspector#PauseContinueThread()<CR>", opt)
-  map("n", "<leader>dv", "<Plug>VimspectorBalloonEval", opt)
+	-- 开始
+	map("n", "<leader>dd", ":call vimspector#Launch()<CR>", opt)
+	-- 结束
+	map("n", "<Leader>de", ":call vimspector#Reset()<CR>", opt)
+	-- 继续
+	map("n", "<Leader>dc", ":call vimspector#Continue()<CR>", opt)
+	-- 设置断点
+	map("n", "<Leader>dt", ":call vimspector#ToggleBreakpoint()<CR>", opt)
+	map("n", "<Leader>dT", ":call vimspector#ClearBreakpoints()<CR>", opt)
+	--  stepOver, stepOut, stepInto
+	map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
+	map("n", "<F5>", "<Plug>VimspectorStepOver", opt)
+	map("n", "<leader>do", "<Plug>VimspectorStepOut", opt)
+	map("n", "<leader>di", "<Plug>VimspectorStepInto", opt)
+	map("n", "<leader>dg", ":call vimspector#RunToCursor()<CR>", opt)
+	-- 查看断点列表
+	map("n", "<leader>db", "<Plug>VimspectorBreakpoints", opt)
+	map("n", "<leader>dr", ":call vimspector#SetCurrentThread()<CR>", opt)
+	map("n", "<leader>dp", ":call vimspector#PauseContinueThread()<CR>", opt)
+	map("n", "<leader>dv", "<Plug>VimspectorBalloonEval", opt)
 end
 
 
@@ -237,67 +237,61 @@ end
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n" }, "<leader>to", toggleterm.toggleB)
-  vim.keymap.set({ "n" }, "<leader>tf", toggleterm.toggleA)
-  vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
+	vim.keymap.set({ "n" }, "<leader>to", toggleterm.toggleB)
+	vim.keymap.set({ "n" }, "<leader>tf", toggleterm.toggleA)
+	vim.keymap.set({ "n" }, "<leader>tg", toggleterm.toggleG)
 end
 
 -- gitsigns
 pluginKeys.gitsigns_on_attach = function(bufnr)
-  local gs = package.loaded.gitsigns
+	local gs = package.loaded.gitsigns
 
-  local function map(mode, l, r, opts)
-    opts = opts or {}
-    opts.buffer = bufnr
-    vim.keymap.set(mode, l, r, opts)
-  end
+	local function map(mode, l, r, opts)
+		opts = opts or {}
+		opts.buffer = bufnr
+		vim.keymap.set(mode, l, r, opts)
+	end
 
-  -- Navigation
-  map("n", "<leader>gj", function()
-    if vim.wo.diff then
-      return "]c"
-    end
-    vim.schedule(function()
-      gs.next_hunk()
-    end)
-    return "<Ignore>"
-  end, { expr = true })
+	-- Navigation
+	map("n", "<leader>gj", function()
+		if vim.wo.diff then
+			return "]c"
+		end
+		vim.schedule(function()
+			gs.next_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
 
-  map("n", "<leader>gk", function()
-    if vim.wo.diff then
-      return "[c"
-    end
-    vim.schedule(function()
-      gs.prev_hunk()
-    end)
-    return "<Ignore>"
-  end, { expr = true })
+	map("n", "<leader>gk", function()
+		if vim.wo.diff then
+			return "[c"
+		end
+		vim.schedule(function()
+			gs.prev_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
 
-  map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
-  map("n", "<leader>gS", gs.stage_buffer)
-  map("n", "<leader>gu", gs.undo_stage_hunk)
-  map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
-  map("n", "<leader>gR", gs.reset_buffer)
-  map("n", "<leader>gp", gs.preview_hunk)
-  map("n", "<leader>gb", function()
-    gs.blame_line({ full = true })
-  end)
-  map("n", "<leader>gd", gs.diffthis)
-  map("n", "<leader>gD", function()
-    gs.diffthis("~")
-  end)
-  -- toggle
-  map("n", "<leader>gtd", gs.toggle_deleted)
-  map("n", "<leader>gtb", gs.toggle_current_line_blame)
-  -- Text object
-  map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
+	map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
+	map("n", "<leader>gS", gs.stage_buffer)
+	map("n", "<leader>gu", gs.undo_stage_hunk)
+	map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
+	map("n", "<leader>gR", gs.reset_buffer)
+	map("n", "<leader>gp", gs.preview_hunk)
+	map("n", "<leader>gb", function()
+		gs.blame_line({ full = true })
+	end)
+	map("n", "<leader>gd", gs.diffthis)
+	map("n", "<leader>gD", function()
+		gs.diffthis("~")
+	end)
+	-- toggle
+	map("n", "<leader>gtd", gs.toggle_deleted)
+	map("n", "<leader>gtb", gs.toggle_current_line_blame)
+	-- Text object
+	map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 end
-
--- 选择窗口
-vim.keymap.set("n", "<leader>w", function()
-    local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
-    vim.api.nvim_set_current_win(picked_window_id)
-end, { desc = "Pick a window" })
 
 -- Run gofmt + goimport on save
 -- local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
@@ -334,5 +328,5 @@ vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").loa
 -- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
 -- 命令行绑定
-vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
 return pluginKeys

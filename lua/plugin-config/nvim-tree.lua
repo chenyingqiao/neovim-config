@@ -110,15 +110,6 @@ local SORT_METHODS = {
 }
 local sort_current = 1
 
-local cycle_sort = function()
-  if sort_current >= #SORT_METHODS then
-    sort_current = 1
-  else
-    sort_current = sort_current + 1
-  end
-  api.tree.reload()
-end
-
 local sort_by = function()
   return SORT_METHODS[sort_current]
 end
