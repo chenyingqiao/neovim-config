@@ -68,7 +68,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'zbirenbaum/copilot.lua'
 
 	" Yay, pass source=true if you want to build from source
-	Plug 'yetone/avante.nvim'
+	Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'}
 
 	" leetcode.nvim
 	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }

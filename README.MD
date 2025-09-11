@@ -4,6 +4,7 @@
 主要是自用的配置，可以在 nvim 中使用
 
 
+
 ## 安装
 克隆本项目到 `~/.config/nvim` 目录下
 在 nvim 中运行 `:PlugInstall` 安装插件
