@@ -21,7 +21,7 @@ require("avante").setup({
 		},
 		moonshot = {
 			endpoint = "https://api.moonshot.cn/v1",
-			model = "kimi-k2-0711-preview",
+			model = "kimi-k2-0905-preview",
 			api_key_name = "MOONSHOT_API_KEY", -- 从环境变量读取
 			timeout = 30000, -- Timeout in milliseconds
 			extra_request_body = {
