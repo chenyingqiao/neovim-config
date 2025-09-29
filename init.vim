@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 	Plug 'nvim-tree/nvim-tree.lua' " 文件树插件
 	Plug 'akinsho/bufferline.nvim' " 打开文件标签页
-	Plug 'neoclide/coc.nvim', {'branch': 'release'} " vscode 提示插件
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'nvim-lua/plenary.nvim' " 
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' } " 全局搜索插件
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " 代码高亮美化
@@ -54,7 +54,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 	Plug 'robitx/gp.nvim'
 	Plug 'supermaven-inc/supermaven-nvim'
-	
+
+	" 流程图渲染
+	Plug '3rd/diagram.nvim'
+
 	" Deps
 	Plug 'stevearc/dressing.nvim'
 	Plug 'nvim-lua/plenary.nvim'
@@ -68,7 +71,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'zbirenbaum/copilot.lua'
 
 	" Yay, pass source=true if you want to build from source
-	Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'}
+	Plug 'yetone/avante.nvim', {'branch': 'main'}
 
 	" leetcode.nvim
 	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }
