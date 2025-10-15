@@ -70,8 +70,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'HakonHarnes/img-clip.nvim'
 	Plug 'zbirenbaum/copilot.lua'
 
-	" Yay, pass source=true if you want to build from source
-	Plug 'yetone/avante.nvim', {'branch': 'main'}
+	" AI相关插件
+	Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'}
+	Plug 'greggh/claude-code.nvim'
 
 	" leetcode.nvim
 	Plug 'kawre/leetcode.nvim', { 'do': ':TSUpdate html' }
@@ -106,6 +107,7 @@ lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
 lua require('plugin-config/transparent')
 lua require('plugin-config/avante')
+lua require('plugin-config/claude-code')
 lua require('plugin-config/gp')
 lua require('plugin-config/supermaven')
 lua require("register")
