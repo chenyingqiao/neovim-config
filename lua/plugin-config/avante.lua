@@ -4,7 +4,7 @@ require("avante").setup({
 		and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
 		or "make",
 
-	instructions_file = "CLAUDE.md",
+	-- instructions_file = "CLAUDE.md",
 
 	-- 👇 不要包在 opts 里面，直接写
 	provider = "moonshot",
