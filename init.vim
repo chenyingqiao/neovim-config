@@ -83,7 +83,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'supermaven-inc/supermaven-nvim' " AI 代码助手
 
 	" AI 编程助手
-	Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'} " AI 编码助手界面
+	" Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'} " AI 编码助手界面
 	Plug 'coder/claudecode.nvim', { 'dependencies': ['folke/snacks.nvim'] } " Claude 集成工具
 call plug#end()
 
@@ -112,9 +112,10 @@ lua require('plugin-config/persistence')
 lua require('plugin-config/notice')
 lua require('plugin-config/minimap')
 lua require('plugin-config/transparent')
-lua require('plugin-config/avante')
+" lua require('plugin-config/avante')
 lua require('plugin-config/supermaven')
 lua require('plugin-config/claudecode')
+lua require('plugin-config/diagram')
 lua require("register")
 " lua require("plugin-config/dap-ui")
 " lua require('plugin-config/neoscroll')
