@@ -323,7 +323,7 @@ map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
 -- 设置claudeCode的快捷键
 map("n", "<leader>a", ":ClaudeCode<CR>", opt)
-map("n", "<leader>ac", ":ClaudeCode<CR>", opt)
+map("n", "<leader>ac", ":ClaudeCode --continue<CR>", opt)
 map("n", "<leader>af", ":ClaudeCodeFocus<CR>", opt)
 map("n", "<leader>ar", ":ClaudeCode --resume<CR>", opt)
 map("n", "<leader>aC", ":ClaudeCode --continue<CR>", opt)
