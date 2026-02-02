@@ -60,7 +60,7 @@ RUN mkdir -p ~/.claude && \
     echo "{\"env\":{\"ANTHROPIC_AUTH_TOKEN\":\"\",\"ANTHROPIC_BASE_URL\":\"\"},\"enabledPlugins\":{\"gopls-lsp@claude-plugins-official\":true,\"php-lsp@claude-plugins-official\":true},\"alwaysThinkingEnabled\":true}" > ~/.claude/settings.json
 
 # 安装neovim
-RUN wget https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux64.tar.gz
+RUN wget https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux-x86_64.tar.gz
 RUN tar -zxvf nvim-linux64.tar.gz
 RUN cp -r nvim-linux64/. /root/.local/
 
