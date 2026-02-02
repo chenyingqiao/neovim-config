@@ -10,7 +10,7 @@ RUN apt-get install -y curl wget git unzip zsh
 RUN apt-get install -y python3 pip
 RUN apt-get install -y tmux
 RUN apt-get install -y fd-find ripgrep fzf
-RUN pip install neovim
+RUN pip install --break-system-packages neovim
 RUN curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v0.58.1/lazygit_0.58.1_Linux_x86_64.tar.gz"
 RUN tar xf lazygit.tar.gz lazygit
 RUN install lazygit /usr/local/bin
@@ -57,7 +57,7 @@ RUN npm install -g @anthropic-ai/claude-code
 ARG ANTHROPIC_AUTH_TOKEN
 ARG ANTHROPIC_BASE_URL
 RUN mkdir -p ~/.claude && \
-    echo "{\"env\":{\"ANTHROPIC_AUTH_TOKEN\":\"${ANTHROPIC_AUTH_TOKEN}\",\"ANTHROPIC_BASE_URL\":\"${ANTHROPIC_BASE_URL}\"},\"enabledPlugins\":{\"gopls-lsp@claude-plugins-official\":true,\"php-lsp@claude-plugins-official\":true},\"alwaysThinkingEnabled\":true}" > ~/.claude/settings.json
+    echo "{\"env\":{\"ANTHROPIC_AUTH_TOKEN\":\"\",\"ANTHROPIC_BASE_URL\":\"\"},\"enabledPlugins\":{\"gopls-lsp@claude-plugins-official\":true,\"php-lsp@claude-plugins-official\":true},\"alwaysThinkingEnabled\":true}" > ~/.claude/settings.json
 
 # 安装neovim
 RUN wget https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux64.tar.gz
