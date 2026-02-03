@@ -64,8 +64,6 @@ ZSH_THEME="fino-time"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git autojump zsh-autosuggestions zsh-syntax-highlighting zsh-z)
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,9 +105,7 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-
-IP_ADDR=$(ipconfig getifaddr en0)
-export PATH=$PATH:/root/.atuin/bin/atuin
+export PATH=$PATH:/root/.atuin/bin
 
 # atuin 历史搜索工具配置
 eval "$(atuin init zsh)"
