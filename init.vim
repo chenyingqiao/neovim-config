@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' } " 模糊查找器和文件搜索
 	Plug 'nvim-telescope/telescope-file-browser.nvim' " 文件浏览器集成
 	Plug 'nvim-telescope/telescope-project.nvim' " 项目管理器
-	Plug 'ggandor/leap.nvim' " 快速光标跳跃导航
+	Plug 'https://codeberg.org/andyg/leap.nvim' " 快速光标跳跃导航
 	Plug 'ggandor/flit.nvim' " 单字符跳转工具
 	Plug 's1n7ax/nvim-window-picker' " 窗口选择器
 
@@ -87,35 +87,55 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'coder/claudecode.nvim', { 'dependencies': ['folke/snacks.nvim'] } " Claude 集成工具
 call plug#end()
 
-lua require('basic')
-lua require('plugin-config/coc')
-lua require('plugin-config/nvim-tree')
-lua require('plugin-config/bufferline')
-lua require('plugin-config/toggleterm')
-lua require('plugin-config/comment')
-lua require('theme')
-lua require('keybinding')
-lua require('plugin-config/flit')
-lua require('plugin-config/gitsigns')
-lua require('plugin-config/vimspector')
-" lua require('plugin-config/windows-picker')
-lua require('plugin-config/lualine')
-lua require('plugin-config/surround')
-lua require('plugin-config/telescope')
-lua require('plugin-config/treesitter')
-lua require('plugin-config/autosave')
-lua require('plugin-config/indent-blankline')
-lua require('plugin-config/dashboard')
-lua require('plugin-config/mundo')
-lua require('plugin-config/git-conflict')
-lua require('plugin-config/persistence')
-lua require('plugin-config/notice')
-lua require('plugin-config/minimap')
-lua require('plugin-config/transparent')
-" lua require('plugin-config/avante')
-lua require('plugin-config/supermaven')
-lua require('plugin-config/claudecode')
-lua require('plugin-config/diagram')
-lua require("register")
-" lua require("plugin-config/dap-ui")
-" lua require('plugin-config/neoscroll')
+" Safely load Lua configs - skip during headless PlugInstall
+lua << EOF
+local safe_require = function(module_name)
+  -- Skip loading during headless mode (used for PlugInstall)
+  if #vim.api.nvim_list_uis() == 0 then
+    return
+  end
+
+  -- Safely require the module, silently continue if not found
+  local ok, err = pcall(require, module_name)
+  if not ok and err and not err:match("module.*not found") then
+    -- Only show errors that aren't "module not found"
+    vim.notify("Error loading " .. module_name .. ": " .. err, vim.log.levels.WARN)
+  end
+end
+
+-- Core configurations (always load)
+safe_require('basic')
+safe_require('theme')
+safe_require('keybinding')
+safe_require('register')
+
+-- Plugin configurations
+safe_require('plugin-config/coc')
+safe_require('plugin-config/nvim-tree')
+safe_require('plugin-config/bufferline')
+safe_require('plugin-config/toggleterm')
+safe_require('plugin-config/comment')
+safe_require('plugin-config/flit')
+safe_require('plugin-config/gitsigns')
+safe_require('plugin-config/vimspector')
+-- safe_require('plugin-config/windows-picker')
+safe_require('plugin-config/lualine')
+safe_require('plugin-config/surround')
+safe_require('plugin-config/telescope')
+safe_require('plugin-config/treesitter')
+safe_require('plugin-config/autosave')
+safe_require('plugin-config/indent-blankline')
+safe_require('plugin-config/dashboard')
+safe_require('plugin-config/mundo')
+safe_require('plugin-config/git-conflict')
+safe_require('plugin-config/persistence')
+safe_require('plugin-config/notice')
+safe_require('plugin-config/minimap')
+safe_require('plugin-config/transparent')
+-- safe_require('plugin-config/avante')
+safe_require('plugin-config/supermaven')
+safe_require('plugin-config/claudecode')
+safe_require('plugin-config/diagram')
+-- safe_require('plugin-config/dap-ui')
+-- safe_require('plugin-config/neoscroll')
+EOF

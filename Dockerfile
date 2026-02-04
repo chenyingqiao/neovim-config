@@ -108,6 +108,78 @@ ENV MANPATH="/root/.local/man"
 RUN mkdir -p ~/.claude && \
     echo '{"env":{"ANTHROPIC_AUTH_TOKEN":"","ANTHROPIC_BASE_URL":""},"enabledPlugins":{"gopls-lsp@claude-plugins-official":true,"php-lsp@claude-plugins-official":true},"alwaysThinkingEnabled":true}' > ~/.claude/settings.json
 
+# 配置 tmux
+COPY ./tmux-install.sh /root/tmux-install.sh
+RUN chmod +x /root/tmux-install.sh
+RUN /root/tmux-install.sh
+
+# 配置neovim
+RUN nvim --headless +PlugInstall +qa
+# 安装 Coc 扩展
+RUN nvim --headless \
+    +"CocInstall \
+    coc-clangd \
+    coc-copilot \
+    coc-go \
+    coc-groovy \
+    coc-highlight \
+    coc-json \
+    coc-lists \
+    coc-lua \
+    coc-marketplace \
+    coc-nav \
+    coc-prettier \
+    coc-protobuf \
+    coc-pyright \
+    coc-rls \
+    coc-snippets \
+    coc-tsserver" \
+    +qa
+
+# 安装 @yaegassy 的扩展（如 coc-intelephense 等）
+RUN nvim --headless \
+    +"CocInstall \
+    @yaegassy/coc-intelephense \
+    @yaegassy/coc-nginx \
+    @yaegassy/coc-volar" \
+    +qa
+
+# 安装 Treesitter 语法解析器
+RUN nvim --headless \
+    +"TSInstall \
+    python \
+    javascript \
+    typescript \
+    lua \
+    bash \
+    go \
+    php \
+    java" \
+    +qa
+
+# 安装额外的有用解析器
+RUN nvim --headless \
+    +"TSInstall \
+    json \
+    yaml \
+    toml \
+    markdown \
+    markdown_inline \
+    dockerfile \
+    make \
+    css \
+    html \
+    scss \
+    sql \
+    regex \
+    comment \
+    query" \
+    +qa
+
+RUN nvim --headless "SupermavenStart" +qa
+RUN nvim --headless "SupermavenFree" +qa
+
+
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
 RUN chsh -s $(which zsh)
