@@ -109,3 +109,10 @@ export PATH=$PATH:/root/.atuin/bin
 
 # atuin 历史搜索工具配置
 eval "$(atuin init zsh)"
+
+# 自动启动 SyncClipboard 客户端（仅当未运行时）
+if command -v syncclipboard-client &> /dev/null; then
+  if ! pgrep -f "syncclipboard-client" > /dev/null; then
+    syncclipboard-client --server syncclipboard --port 8080 --secret 1234 &> /dev/null &
+  fi
+fi

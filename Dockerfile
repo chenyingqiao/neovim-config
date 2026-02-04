@@ -7,7 +7,7 @@ WORKDIR /root
 
 # 安装基础工具
 RUN apt-get update && \
-    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf && \
+    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 复制所有架构的包
@@ -28,7 +28,7 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
     fi && \
     ls -la /tmp/downloads/${ARCH_DIR}/ && \
     cd /tmp/downloads/${ARCH_DIR} && \
-    cp lazygit*.tar.gz node-*.tar.xz nvim-linux-*.tar.gz go*.tar.gz /root/ && \
+    cp lazygit*.tar.gz node-*.tar.xz nvim-linux-*.tar.gz go*.tar.gz SyncClipboard*.deb /root/ && \
     echo "Using ${ARCH_DIR} packages for TARGETARCH=${TARGETARCH}"
 
 # 安装 lazygit
@@ -52,6 +52,10 @@ RUN tar -zxvf go*.tar.gz && \
     cp -r ./go/* ~/.local/ && \
     rm -rf ./go && \
     rm -f go*.tar.gz
+
+# 安装 SyncClipboard
+RUN dpkg -i SyncClipboard*.deb || apt-get install -f -y && \
+    rm -f SyncClipboard*.deb
 
 # 安装 Python neovim
 RUN pip install --break-system-packages neovim
@@ -175,10 +179,6 @@ RUN nvim --headless \
     comment \
     query" \
     +qa
-
-RUN nvim --headless "SupermavenStart" +qa
-RUN nvim --headless "SupermavenFree" +qa
-
 
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]

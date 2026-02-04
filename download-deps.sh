@@ -30,6 +30,7 @@ download_if_missing https://github.com/jesseduffield/lazygit/releases/download/v
 download_if_missing https://nodejs.org/dist/v25.5.0/node-v25.5.0-linux-x64.tar.xz
 download_if_missing https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux-x86_64.tar.gz
 download_if_missing https://go.dev/dl/go1.25.6.linux-amd64.tar.gz
+download_if_missing https://github.com/Jeric-X/SyncClipboard/releases/download/v3.1.0/SyncClipboard_linux_x64.deb
 cd ../..
 
 echo "=== 下载 aarch64 架构依赖 ==="
@@ -38,6 +39,7 @@ download_if_missing https://github.com/jesseduffield/lazygit/releases/download/v
 download_if_missing https://nodejs.org/dist/v25.5.0/node-v25.5.0-linux-arm64.tar.xz
 download_if_missing https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux-arm64.tar.gz
 download_if_missing https://go.dev/dl/go1.25.6.linux-arm64.tar.gz
+download_if_missing https://github.com/Jeric-X/SyncClipboard/releases/download/v3.1.0/SyncClipboard_linux_arm64.deb
 cd ../..
 
 echo "=== 下载完成 ==="
