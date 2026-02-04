@@ -3,10 +3,10 @@ services:
     image: danding19931115/nvim-lerko:0.0.2
     container_name: nvim-lerko
     ports:
-      - "80:80"
+      - "80:8081"
     volumes:
       - ${HOME}/.config/nvim/docker/plugged:/root/.config/nvim/plugged
-      - ${HOME}/development:/workspace
+      - ${HOME}/developer-env:/workspace
     tty: true
     stdin_open: true
   syncclipboard:
