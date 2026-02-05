@@ -7,7 +7,7 @@ WORKDIR /root
 
 # 安装基础工具
 RUN apt-get update && \
-    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates && \
+    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 复制所有架构的包
@@ -17,6 +17,8 @@ COPY downloads /tmp/downloads
 COPY . /root/.config/nvim/
 COPY .tmux.conf /root/.tmux.conf
 COPY .zshrc /root/.zshrc
+COPY syncclipboard_client.py /root/.local/bin/syncclipboard_client.py
+RUN chmod +x /root/.local/bin/syncclipboard_client.py
 
 # 根据架构选择对应的包，直接复制到当前目录
 RUN if [ "$TARGETARCH" = "amd64" ]; then \
@@ -28,7 +30,7 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
     fi && \
     ls -la /tmp/downloads/${ARCH_DIR}/ && \
     cd /tmp/downloads/${ARCH_DIR} && \
-    cp lazygit*.tar.gz node-*.tar.xz nvim-linux-*.tar.gz go*.tar.gz SyncClipboard*.deb /root/ && \
+    cp lazygit*.tar.gz node-*.tar.xz nvim-linux-*.tar.gz go*.tar.gz /root/ && \
     echo "Using ${ARCH_DIR} packages for TARGETARCH=${TARGETARCH}"
 
 # 安装 lazygit
@@ -53,12 +55,13 @@ RUN tar -zxvf go*.tar.gz && \
     rm -rf ./go && \
     rm -f go*.tar.gz
 
-# 安装 SyncClipboard
-RUN dpkg -i SyncClipboard*.deb || apt-get install -f -y && \
-    rm -f SyncClipboard*.deb
+# 安装 Python neovim 和 SyncClipboard 客户端依赖
+RUN pip install --break-system-packages neovim requests Pillow
 
-# 安装 Python neovim
-RUN pip install --break-system-packages neovim
+# 生成中文 UTF-8 locale
+RUN sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen zh_CN.UTF-8 && \
+    update-locale LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8
 
 # 安装 atuin
 RUN curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh
@@ -103,10 +106,12 @@ RUN unzip /root/tmp_fonts/CodeNewRoman.zip -d /root/tmp_fonts && \
     rm -rf /root/tmp_fonts
 
 # 设置环境变量
-ENV PATH="/root/.local/bin:/root/.local/share/npm/bin:/root/go/bin:$PATH"
-ENV LD_LIBRARY_PATH="/root/.local/lib"
-ENV SHARE_PATH="/root/.local/share"
-ENV MANPATH="/root/.local/man"
+ENV LANG="zh_CN.UTF-8" \
+    LC_ALL="zh_CN.UTF-8" \
+    PATH="/root/.local/bin:/root/.local/share/npm/bin:/root/go/bin:$PATH" \
+    LD_LIBRARY_PATH="/root/.local/lib" \
+    SHARE_PATH="/root/.local/share" \
+    MANPATH="/root/.local/man"
 
 # 配置 claudecode
 RUN mkdir -p ~/.claude && \

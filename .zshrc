@@ -111,8 +111,8 @@ export PATH=$PATH:/root/.atuin/bin
 eval "$(atuin init zsh)"
 
 # 自动启动 SyncClipboard 客户端（仅当未运行时）
-if command -v syncclipboard-client &> /dev/null; then
-  if ! pgrep -f "syncclipboard-client" > /dev/null; then
-    syncclipboard-client --server syncclipboard --port 8080 --secret 1234 &> /dev/null &
+if [ -f /root/.local/bin/syncclipboard_client.py ]; then
+  if ! pgrep -f "syncclipboard_client.py" > /dev/null; then
+    nohup python3 /root/.local/bin/syncclipboard_client.py --url http://syncclipboard:5033 --username admin --password admin --interval 2 > /dev/null 2>&1 &
   fi
 fi

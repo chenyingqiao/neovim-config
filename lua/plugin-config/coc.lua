@@ -97,8 +97,8 @@ vim.api.nvim_create_autocmd("User", {
 -- 将 codeAction 应用到选中区域
 -- 示例：对当前段落使用 `<leader>aap`
 local opts = {silent = true, nowait = true}
-keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+-- keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+-- keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
 -- 为光标位置应用代码操作重新映射键
 -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)

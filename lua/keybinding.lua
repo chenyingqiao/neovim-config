@@ -322,17 +322,17 @@ map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
 
 -- 设置claudeCode的快捷键
-map("n", "<leader>a", ":ClaudeCode<CR>", opt)
-map("n", "<leader>ac", ":ClaudeCode --continue<CR>", opt)
-map("n", "<leader>af", ":ClaudeCodeFocus<CR>", opt)
-map("n", "<leader>ar", ":ClaudeCode --resume<CR>", opt)
-map("n", "<leader>aC", ":ClaudeCode --continue<CR>", opt)
-map("n", "<leader>am", ":ClaudeCodeSelectModel<CR>", opt)
-map("n", "<leader>ab", ":ClaudeCodeAdd %<CR>", opt)
-map("v", "<leader>as", ":ClaudeCodeSend<CR>", opt)
-map("n", "<leader>as", ":ClaudeCodeTreeAdd<CR>", opt)
-map("n", "<leader>aa", ":ClaudeCodeDiffAccept<CR>", opt)
-map("n", "<leader>ad", ":ClaudeCodeDiffDeny<CR>", opt)
+map("n", "<leader>a", ":ClaudeCode<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>ac", ":ClaudeCode --continue<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>af", ":ClaudeCodeFocus<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>ar", ":ClaudeCode --resume<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>aC", ":ClaudeCode --continue<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>am", ":ClaudeCodeSelectModel<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>ab", ":ClaudeCodeAdd %<CR>", { noremap = true, silent = true, nowait = true })
+map("v", "<leader>as", ":ClaudeCodeSend<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>as", ":ClaudeCodeTreeAdd<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>aa", ":ClaudeCodeDiffAccept<CR>", { noremap = true, silent = true, nowait = true })
+map("n", "<leader>ad", ":ClaudeCodeDiffDeny<CR>", { noremap = true, silent = true, nowait = true })
 
 -- vim-fugitive git 插件
 

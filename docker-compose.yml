@@ -14,9 +14,6 @@ services:
     container_name: syncclipboard
     restart: unless-stopped
     ports:
-      - "8080:8080"  # 服务端口
-    environment:
-      - SYNC_CLIPBOARD_PORT=8080
-      - SYNC_CLIPBOARD_SECRET=1234
+      - "5033:5033"  # 服务端口
     volumes:
       - ./data:/app/data  # 持久化数据
