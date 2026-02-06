@@ -22,7 +22,7 @@ download_if_missing() {
     wget -q --show-progress "$url"
 }
 
-mkdir -p ../downloads/x86_64 downloads/aarch64
+mkdir -p ../downloads/x86_64 ../downloads/aarch64
 
 echo "=== 下载 x86_64 架构依赖 ==="
 cd ../downloads/x86_64
@@ -34,7 +34,7 @@ download_if_missing https://github.com/Jeric-X/SyncClipboard/releases/download/v
 cd ../..
 
 echo "=== 下载 aarch64 架构依赖 ==="
-cd ../downloads/aarch64
+cd downloads/aarch64
 download_if_missing https://github.com/jesseduffield/lazygit/releases/download/v0.58.1/lazygit_0.58.1_Linux_arm64.tar.gz
 download_if_missing https://nodejs.org/dist/v25.5.0/node-v25.5.0-linux-arm64.tar.xz
 download_if_missing https://github.com/neovim/neovim/releases/download/v0.11.6/nvim-linux-arm64.tar.gz
