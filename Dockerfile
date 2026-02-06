@@ -130,6 +130,7 @@ RUN nvim --headless \
     coc-clangd \
     coc-copilot \
     coc-go \
+    coc-yaml \
     coc-groovy \
     coc-highlight \
     coc-json \
@@ -157,6 +158,7 @@ RUN nvim --headless \
 RUN nvim --headless \
     +"TSInstall \
     python \
+    json \
     javascript \
     typescript \
     lua \
@@ -189,4 +191,6 @@ RUN nvim --headless \
 SHELL ["/bin/zsh", "-c"]
 RUN chsh -s $(which zsh)
 
-CMD ["sleep", "infinity"]
+# 启动 SyncClipboard 客户端并保持容器运行
+# 启动 SyncClipboard 客户端作为主进程
+CMD ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://syncclipboard:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
