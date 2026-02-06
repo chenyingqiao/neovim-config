@@ -7,8 +7,7 @@ WORKDIR /root
 
 # 安装基础工具
 RUN apt-get update && \
-    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales tzdata net-tools lsof
 
 # 复制所有架构的包
 COPY downloads /tmp/downloads
@@ -64,6 +63,10 @@ RUN sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen zh_CN.UTF-8 && \
     update-locale LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8
 
+# 设置中国时区
+RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone
+
 # 安装 atuin
 RUN curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh
 
@@ -109,6 +112,7 @@ RUN unzip /root/tmp_fonts/CodeNewRoman.zip -d /root/tmp_fonts && \
 # 设置环境变量
 ENV LANG="zh_CN.UTF-8" \
     LC_ALL="zh_CN.UTF-8" \
+    TZ="Asia/Shanghai" \
     PATH="/root/.local/bin:/root/.local/share/npm/bin:/root/go/bin:$PATH" \
     LD_LIBRARY_PATH="/root/.local/lib" \
     SHARE_PATH="/root/.local/share" \
@@ -182,6 +186,9 @@ RUN for i in 1 2 3; do \
     regex \
     comment \
     query" +"sleep 60" +qa && break || sleep 30; done
+
+# 安装 Vimspector 调试适配器（Go 和 Python）
+RUN nvim --headless +"VimspectorInstall dlv debugpy" +"sleep 60" +qa
 
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
