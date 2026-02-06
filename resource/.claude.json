@@ -1,0 +1,27 @@
+{
+  "cachedGrowthBookFeatures": {
+    "tengu_1p_event_batch_config": {},
+    "tengu_mcp_tool_search": true,
+    "tengu_scratch": false,
+    "tengu_brass_pebble": false,
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_event_sampling_config": {},
+    "tengu_log_segment_events": false,
+    "tengu_log_datadog_events": false,
+    "tengu_marble_anvil": false,
+    "tengu_tool_pear": false,
+    "tengu_scarf_coffee": false,
+    "tengu_keybinding_customization_release": false,
+    "tengu_thinkback": false
+  },
+  "userID": "81278b1b75fed5bbd0daad2145a03a951b432f21680b6c57e07b1d052c29201c",
+  "firstStartTime": "2026-02-06T02:00:26.802Z",
+  "sonnet45MigrationComplete": true,
+  "opus45MigrationComplete": true,
+  "opusProMigrationComplete": true,
+  "thinkingMigrationComplete": true,
+  "cachedChromeExtensionInstalled": false,
+  "changelogLastFetched": 1770343227429,
+  "hasCompletedOnboarding": true
+}
+

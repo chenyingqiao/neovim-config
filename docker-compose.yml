@@ -2,17 +2,16 @@ services:
   nvim:
     image: danding19931115/nvim-lerko:0.0.2
     container_name: nvim-lerko
-    ports:
-      - "8080:8080"
+    network_mode: host
     volumes:
       - ${HOME}/developer-env:/workspace
+      - ${HOME}/.claude:/root/.claude
     tty: true
     stdin_open: true
   syncclipboard:
     image: hub.rat.dev/jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
-    ports:
-      - "5033:5033"  # 服务端口
+    network_mode: host
     volumes:
       - ./data:/app/data  # 持久化数据

@@ -15,9 +15,10 @@ COPY downloads /tmp/downloads
 
 # 复制配置文件
 COPY . /root/.config/nvim/
-COPY .tmux.conf /root/.tmux.conf
-COPY .zshrc /root/.zshrc
-COPY syncclipboard_client.py /root/.local/bin/syncclipboard_client.py
+COPY resource/.tmux.conf /root/.tmux.conf
+COPY resource/.zshrc /root/.zshrc
+COPY script/syncclipboard_client.py /root/.local/bin/syncclipboard_client.py
+COPY resource/.claude.json /root/.claude.json
 RUN chmod +x /root/.local/bin/syncclipboard_client.py
 
 # 根据架构选择对应的包，直接复制到当前目录
@@ -98,7 +99,7 @@ RUN for i in 1 2 3 4 5; do \
     done
 
 # 安装字体
-COPY CodeNewRoman.zip ./tmp_fonts/
+COPY resource/CodeNewRoman.zip ./tmp_fonts/
 RUN unzip /root/tmp_fonts/CodeNewRoman.zip -d /root/tmp_fonts && \
     mkdir -p /usr/share/fonts/CodeNewRoman && \
     mv /root/tmp_fonts/CodeNewRomanNerd* /usr/share/fonts/CodeNewRoman && \
@@ -118,15 +119,15 @@ RUN mkdir -p ~/.claude && \
     echo '{"env":{"ANTHROPIC_AUTH_TOKEN":"","ANTHROPIC_BASE_URL":""},"enabledPlugins":{"gopls-lsp@claude-plugins-official":true,"php-lsp@claude-plugins-official":true},"alwaysThinkingEnabled":true}' > ~/.claude/settings.json
 
 # 配置 tmux
-COPY ./tmux-install.sh /root/tmux-install.sh
+COPY script/tmux-install.sh /root/tmux-install.sh
 RUN chmod +x /root/tmux-install.sh
 RUN /root/tmux-install.sh
 
 # 配置neovim
 RUN nvim --headless +PlugInstall +qa
-# 安装 Coc 扩展
-RUN nvim --headless \
-    +"CocInstall \
+# 安装 Coc 扩展（带重试机制）
+RUN for i in 1 2 3; do \
+    nvim --headless +"CocInstall -sync \
     coc-clangd \
     coc-copilot \
     coc-go \
@@ -143,34 +144,30 @@ RUN nvim --headless \
     coc-pyright \
     coc-rls \
     coc-snippets \
-    coc-tsserver" \
-    +qa
+    coc-tsserver" +qa && break || sleep 30; done
 
-# 安装 @yaegassy 的扩展（如 coc-intelephense 等）
-RUN nvim --headless \
-    +"CocInstall \
+# 安装 @yaegassy 的扩展（带重试机制）
+RUN for i in 1 2 3; do \
+    nvim --headless +"CocInstall -sync \
     @yaegassy/coc-intelephense \
     @yaegassy/coc-nginx \
-    @yaegassy/coc-volar" \
-    +qa
+    @yaegassy/coc-volar" +qa && break || sleep 30; done
 
-# 安装 Treesitter 语法解析器
-RUN nvim --headless \
-    +"TSInstall \
+# 安装 Treesitter 语法解析器（带重试机制）
+RUN for i in 1 2 3; do \
+    nvim --headless +"TSInstall \
     python \
-    json \
     javascript \
     typescript \
     lua \
     bash \
     go \
     php \
-    java" \
-    +qa
+    java" +"sleep 60" +qa && break || sleep 30; done
 
-# 安装额外的有用解析器
-RUN nvim --headless \
-    +"TSInstall \
+# 安装额外的有用解析器（带重试机制）
+RUN for i in 1 2 3; do \
+    nvim --headless +"TSInstall \
     json \
     yaml \
     toml \
@@ -184,8 +181,7 @@ RUN nvim --headless \
     sql \
     regex \
     comment \
-    query" \
-    +qa
+    query" +"sleep 60" +qa && break || sleep 30; done
 
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
@@ -193,4 +189,4 @@ RUN chsh -s $(which zsh)
 
 # 启动 SyncClipboard 客户端并保持容器运行
 # 启动 SyncClipboard 客户端作为主进程
-CMD ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://syncclipboard:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
+CMD ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://localhost:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
