@@ -190,6 +190,9 @@ RUN for i in 1 2 3; do \
 # 安装 Vimspector 调试适配器（Go 和 Python）
 RUN nvim --headless +"VimspectorInstall dlv debugpy" +"sleep 60" +qa
 
+RUN git config --global user.email "chenyingqiao19931115@gmail.com"
+RUN git config --global user.name "LerkoX"
+
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
 RUN chsh -s $(which zsh)
