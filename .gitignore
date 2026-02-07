@@ -13,3 +13,4 @@ node-v18.16.0-linux-x64
 nvim-linux64.tar.*
 nvim-linux64/
 downloads/
+data/

@@ -4,8 +4,7 @@ services:
     container_name: nvim-lerko
     network_mode: host
     volumes:
-      - ${HOME}/developer-env:/workspace
-      - ${HOME}/.claude:/root/.claude
+      - D:\coder:/workspace
     tty: true
     stdin_open: true
   syncclipboard:
