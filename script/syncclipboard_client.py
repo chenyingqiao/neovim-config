@@ -40,21 +40,29 @@ class ClipboardManager:
 
 
 class LinuxClipboardManager(ClipboardManager):
-    """Linux剪贴板管理器 (支持X11和Wayland)"""
-
     def __init__(self):
-        # 检测可用的剪贴板工具
         self.use_wl = False
-        try:
-            import subprocess
-            # 检测Wayland
-            result = subprocess.run(['loginctl', 'show-session', "$(loginctl | grep $(whoami) | awk '{print $1}')", '-p', 'Type'],
-                                  capture_output=True, text=True)
-            self.use_wl = 'wayland' in result.stdout.lower()
-        except:
-            pass
+        self.has_display = os.environ.get('DISPLAY') or os.environ.get('WAYLAND_DISPLAY')
+        
+        # 容器环境检测
+        if not self.has_display:
+            print("警告: 没有检测到显示环境，剪贴板功能可能受限", file=sys.stderr)
+        
+        # 检测 Wayland（仅在非容器环境）
+        if not os.path.exists('/.dockerenv') and not os.environ.get('KUBERNETES_SERVICE_HOST'):
+            try:
+                import subprocess
+                result = subprocess.run(['loginctl', 'show-session', "$(loginctl | grep $(whoami) | awk '{print $1}')", '-p', 'Type'],
+                                      capture_output=True, text=True, shell=True)
+                self.use_wl = 'wayland' in result.stdout.lower()
+            except:
+                pass
 
     def get_text(self) -> Optional[str]:
+        # 如果没有显示环境，尝试从文件或环境变量读取
+        if not self.has_display:
+            return self._get_text_fallback()
+            
         try:
             import subprocess
             if self.use_wl:
@@ -68,6 +76,10 @@ class LinuxClipboardManager(ClipboardManager):
         return None
 
     def set_text(self, text: str):
+        if not self.has_display:
+            self._set_text_fallback(text)
+            return
+            
         try:
             import subprocess
             if self.use_wl:
@@ -76,6 +88,20 @@ class LinuxClipboardManager(ClipboardManager):
                 subprocess.run(['xclip', '-selection', 'clipboard'], input=text.encode(), check=True)
         except Exception as e:
             print(f"设置剪贴板文本失败: {e}", file=sys.stderr)
+    
+    # 容器环境下的降级方案
+    def _get_text_fallback(self) -> Optional[str]:
+        """从临时文件读取剪贴板内容（容器环境）"""
+        clip_file = Path('/tmp/.syncclipboard_cache')
+        if clip_file.exists():
+            return clip_file.read_text()
+        return None
+    
+    def _set_text_fallback(self, text: str):
+        """保存到临时文件（容器环境）"""
+        clip_file = Path('/tmp/.syncclipboard_cache')
+        clip_file.write_text(text)
+        print(f"剪贴板内容已保存到 {clip_file}")
 
     def get_image(self) -> Optional[bytes]:
         # Linux图片剪贴板支持较复杂，暂不实现

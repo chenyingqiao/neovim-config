@@ -2,17 +2,7 @@ services:
   nvim:
     image: danding19931115/nvim-lerko
     container_name: nvim-lerko
-    ports:
-      - 8080:8080
-      - 8081:8081
-      - 8082:8082
-      - 8083:8083
-      - 8084:8084
-      - 8085:8085
-      - 8086:8086
-      - 8087:8087
-      - 8088:8088
-      - 8089:8089
+    network_mode: "host"
     volumes:
       - D:\coder:/workspace
     tty: true
@@ -22,7 +12,7 @@ services:
     container_name: syncclipboard
     restart: unless-stopped
     ports:
-      - 5033:5033
+      - "5033:5033"  # 改为端口映射
     environment:
       - USERNAME=admin
       - PASSWORD=admin

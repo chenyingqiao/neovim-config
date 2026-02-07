@@ -193,6 +193,9 @@ RUN nvim --headless +"VimspectorInstall dlv debugpy" +"sleep 60" +qa
 RUN git config --global user.email "chenyingqiao19931115@gmail.com"
 RUN git config --global user.name "LerkoX"
 
+# 安装 xclip 替代品 - 使用 clipboard 库或自定义方案
+RUN pip install --break-system-packages pyperclip
+
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
 RUN chsh -s $(which zsh)
