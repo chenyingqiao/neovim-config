@@ -11,7 +11,7 @@ telescope.setup{
     project = {
       base_dirs = {
         {'~/developer-env', max_depth = 4},
-        {'/workspace', max_depth = 4},
+        {'/workspace', max_depth = 3},
         {'~/.config', max_depth = 3},
       },
       hidden_files = false, -- default: false

@@ -63,7 +63,7 @@ ZSH_THEME="fino-time"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-autosuggestions zsh-syntax-highlighting zsh-z)
+plugins=(git autojump zsh-syntax-highlighting zsh-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,4 +109,4 @@ export PATH=$PATH:/root/.atuin/bin
 
 # atuin 历史搜索工具配置
 eval "$(atuin init zsh)"
-
+export TERM=xterm-256color

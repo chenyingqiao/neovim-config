@@ -7,7 +7,7 @@ WORKDIR /root
 
 # 安装基础工具
 RUN apt-get update && \
-    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales tzdata net-tools lsof
+    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales tzdata net-tools lsof ncurses-term
 
 # 复制所有架构的包
 COPY downloads /tmp/downloads
@@ -195,6 +195,9 @@ RUN git config --global user.name "LerkoX"
 
 # 安装 xclip 替代品 - 使用 clipboard 库或自定义方案
 RUN pip install --break-system-packages pyperclip
+
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
