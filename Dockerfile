@@ -7,7 +7,8 @@ WORKDIR /root
 
 # 安装基础工具
 RUN apt-get update && \
-    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps xsel xclip ca-certificates locales tzdata net-tools lsof ncurses-term
+    apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps \ 
+							xsel xclip ca-certificates locales tzdata net-tools lsof ncurses-term tini
 
 # 复制所有架构的包
 COPY downloads /tmp/downloads
@@ -205,4 +206,5 @@ RUN chsh -s $(which zsh)
 
 # 启动 SyncClipboard 客户端并保持容器运行
 # 启动 SyncClipboard 客户端作为主进程
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://localhost:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
