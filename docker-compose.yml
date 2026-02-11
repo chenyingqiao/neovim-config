@@ -6,6 +6,7 @@ services:
     volumes:
       - ${HOME}/developer-env:/workspace
       - ${HOME}/.claude:/root/.claude
+      - ${HOME}/.ssh:/root/.ssh
     tty: true
     stdin_open: true
   syncclipboard:
