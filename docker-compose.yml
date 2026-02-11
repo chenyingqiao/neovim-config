@@ -7,6 +7,9 @@ services:
       - ${HOME}/developer-env:/workspace
       - ${HOME}/.claude:/root/.claude
       - ${HOME}/.ssh:/root/.ssh
+      # Go 缓存持久化
+      - go-mod-cache:/root/go/pkg/mod
+      - go-build-cache:/root/.cache/go-build
     tty: true
     stdin_open: true
   syncclipboard:
@@ -19,3 +22,7 @@ services:
       - PASSWORD=admin
     volumes:
       - ./data:/app/data  # 持久化数据
+
+volumes:
+  go-mod-cache:
+  go-build-cache:
