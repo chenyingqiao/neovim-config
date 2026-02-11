@@ -9,7 +9,7 @@ services:
       - ${HOME}/.ssh:/root/.ssh
       # Go 缓存持久化
       - go-mod-cache:/root/go/pkg/mod
-      - go-build-cache:/root/.cache/go-build
+      - cache:/root/.cache
     tty: true
     stdin_open: true
   syncclipboard:
@@ -25,4 +25,4 @@ services:
 
 volumes:
   go-mod-cache:
-  go-build-cache:
+  cache:
