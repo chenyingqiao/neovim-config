@@ -4,7 +4,7 @@ services:
     container_name: nvim-lerko
     network_mode: host
     volumes:
-      - /Volumes/新分区/workspace:/workspace
+      - ${HOME}/workspace:/workspace
       - ${HOME}/.claude:/root/.claude
       - ${HOME}/.ssh:/root/.ssh
       # Go 缓存持久化
