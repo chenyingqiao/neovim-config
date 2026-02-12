@@ -1,6 +1,10 @@
 telescope = require("telescope")
+local sorters = require('telescope.sorters')
 telescope.setup{
   defaults = { 
+	-- 使用子串匹配器代替模糊匹配
+    file_sorter = sorters.get_substr_matcher,
+    generic_sorter = sorters.get_substr_matcher,
     file_ignore_patterns = {
       "node_modules",
 	  ".git/", ".cache", "%.o", "%.a", "%.out", "%.class",
