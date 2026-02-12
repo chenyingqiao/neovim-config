@@ -5,6 +5,10 @@ services:
     network_mode: "host"
     volumes:
       - D:\coder:/workspace
+      # Go 缓存持久化
+      - go-mod-cache:/root/go/pkg/mod
+      - cache:/root/.cache
+      - ./script:/tmp/script
     tty: true
     stdin_open: true
   syncclipboard:
@@ -18,3 +22,9 @@ services:
       - PASSWORD=admin
     volumes:
       - ./data:/app/data  # 持久化数据
+
+volumes:
+  go-mod-cache:
+  cache:
+  workspace:
+
