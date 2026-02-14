@@ -7,5 +7,14 @@ require("noice").setup({
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = false, -- add a border to hover docs and signature help
   },
-  render = "wrapped-compact",
+  render = "minimal",
+  -- 禁用动画效果以提高容器中的性能
+  animate = {
+    enabled = false,
+  },
+  -- 简化消息通知
+  notify = {
+    enabled = true,
+    view = "notify",
+  },
 })
