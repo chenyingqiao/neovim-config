@@ -14,7 +14,7 @@ services:
     tty: true
     stdin_open: true
   syncclipboard:
-    image: hub.rat.dev/jericx/syncclipboard-server
+    image: jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
     network_mode: host

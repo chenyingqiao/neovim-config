@@ -8,11 +8,12 @@ services:
       # Go 缓存持久化
       - go-mod-cache:/root/go/pkg/mod
       - cache:/root/.cache
+      - C:\Users\cheny\.ssh:/tmp/.ssh:ro
       - ./script:/tmp/script
     tty: true
     stdin_open: true
   syncclipboard:
-    image: hub.rat.dev/jericx/syncclipboard-server
+    image: jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
     ports:
