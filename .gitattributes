@@ -1,0 +1,8 @@
+# 所有文本文件自动处理换行符
+* text=auto eol=lf
+
+# 确保特定文件类型
+*.sh text eol=lf
+*.zsh text eol=lf
+.zshrc text eol=lf
+*.cmd text eol=crlf    # Windows批处理保留CRLF
