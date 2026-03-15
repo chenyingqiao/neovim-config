@@ -77,3 +77,50 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
+local has_display = os.getenv('DISPLAY') or os.getenv('WAYLAND_DISPLAY')
+if not has_display then
+  -- 在容器环境中使用文件作为剪贴板
+  vim.g.clipboard = {
+    name = 'container_clipboard',
+    copy = {
+      ['+'] = function(lines, regtype)
+        local text = table.concat(lines, '\n')
+        local file = io.open('/tmp/.syncclipboard_cache', 'w')
+        if file then
+          file:write(text)
+          file:close()
+        end
+      end,
+      ['*'] = function(lines, regtype)
+        -- same as +
+        local text = table.concat(lines, '\n')
+        local file = io.open('/tmp/.syncclipboard_cache', 'w')
+        if file then
+          file:write(text)
+          file:close()
+        end
+      end
+    },
+    paste = {
+      ['+'] = function()
+        local file = io.open('/tmp/.syncclipboard_cache', 'r')
+        if file then
+          local content = file:read('*all')
+          file:close()
+          return vim.split(content, '\n')
+        end
+        return {}
+      end,
+      ['*'] = function()
+        -- same as +
+        local file = io.open('/tmp/.syncclipboard_cache', 'r')
+        if file then
+          local content = file:read('*all')
+          file:close()
+          return vim.split(content, '\n')
+        end
+        return {}
+      end
+    }
+  }
+end
