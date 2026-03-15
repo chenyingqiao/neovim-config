@@ -33,8 +33,8 @@ read -p "Enable proxy? [y/N] (default: N): " enable_proxy
 
 BUILD_ARGS=""
 if [[ "$enable_proxy" =~ ^[Yy]$ ]]; then
-  read -p "Enter proxy host:port (default: 127.0.0.1:7890): " proxy_addr
-  PROXY_ADDR="${proxy_addr:-127.0.0.1:7890}"
+  read -p "Enter proxy host:port (default: 127.0.0.1:7897): " proxy_addr
+  PROXY_ADDR="${proxy_addr:-127.0.0.1:7897}"
 
   read -p "Use SOCKS5 for all_proxy? [Y/n] (default: Y): " use_socks
   if [[ "$use_socks" =~ ^[Nn]$ ]]; then
@@ -83,7 +83,7 @@ docker buildx build \
   --platform "$PLATFORM" \
   $BUILD_ARGS \
   -t "$IMAGE_NAME" \
-  -f Dockerfile ./
+  -f Dockerfile-base ./
 
 echo ""
 echo "Build complete: $IMAGE_NAME"

@@ -8,7 +8,7 @@ WORKDIR /root
 # 安装基础工具
 RUN apt-get update && \
     apt-get install -y curl wget git unzip zsh autojump python3 pip tmux fd-find ripgrep fzf x11-apps \ 
-							xsel xclip ca-certificates locales tzdata net-tools lsof ncurses-term tini
+							xsel xclip ca-certificates locales tzdata net-tools lsof ncurses-term tini build-essential gcc g++
 
 # 复制所有架构的包
 COPY downloads /tmp/downloads
@@ -45,6 +45,9 @@ RUN mkdir -p ~/.local && \
     cp -r node-*/* ~/.local/ && \
     rm -rf node-* node-*.tar.xz
 
+# 安装 tree-sitter CLI（nvim-treesitter 编译需要）
+RUN PATH="/root/.local/bin:$PATH" npm install -g tree-sitter-cli
+
 # 安装 neovim
 RUN tar -zxvf nvim-linux-*.tar.gz && \
     cp -r nvim-linux-*/* ~/.local/ && \
@@ -72,6 +75,7 @@ RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh
 
 # 安装 claudecode
+RUN PATH="$HOME/.local/bin:$PATH" ~/.local/bin/npm config set registry https://registry.npmmirror.com
 RUN PATH="$HOME/.local/bin:$PATH" ~/.local/bin/npm install -g @anthropic-ai/claude-code
 
 # 安装 Go 工具

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # 创建插件目录
 mkdir -p ~/.tmux/plugins
