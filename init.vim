@@ -55,7 +55,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" 通知和 UI 增强
 	Plug 'rcarriga/nvim-notify' " 美化的通知系统
-	Plug 'folke/noice.nvim' " 命令行和消息 UI 增强
 	Plug 'VonHeikemen/fine-cmdline.nvim' " 命令行输入界面
 
 	" 工具库依赖
@@ -109,6 +108,9 @@ safe_require('theme')
 safe_require('keybinding')
 safe_require('register')
 
+-- Notify must be loaded first to override vim.notify for other plugins
+safe_require('plugin-config/notify')
+
 -- Plugin configurations
 safe_require('plugin-config/coc')
 safe_require('plugin-config/nvim-tree')
@@ -118,7 +120,6 @@ safe_require('plugin-config/comment')
 safe_require('plugin-config/flit')
 safe_require('plugin-config/gitsigns')
 safe_require('plugin-config/vimspector')
--- safe_require('plugin-config/windows-picker')
 safe_require('plugin-config/lualine')
 safe_require('plugin-config/surround')
 safe_require('plugin-config/telescope')
@@ -129,13 +130,12 @@ safe_require('plugin-config/dashboard')
 safe_require('plugin-config/mundo')
 safe_require('plugin-config/git-conflict')
 safe_require('plugin-config/persistence')
-safe_require('plugin-config/notice')
 safe_require('plugin-config/minimap')
 safe_require('plugin-config/transparent')
--- safe_require('plugin-config/avante')
 safe_require('plugin-config/supermaven')
 safe_require('plugin-config/claudecode')
 safe_require('plugin-config/diagram')
 -- safe_require('plugin-config/dap-ui')
+-- safe_require('plugin-config/windows-picker')
 -- safe_require('plugin-config/neoscroll')
 EOF
