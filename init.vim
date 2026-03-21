@@ -55,6 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" 通知和 UI 增强
 	Plug 'rcarriga/nvim-notify' " 美化的通知系统
+	Plug 'folke/noice.nvim' " 命令行和消息 UI 增强
 	Plug 'VonHeikemen/fine-cmdline.nvim' " 命令行输入界面
 
 	" 工具库依赖

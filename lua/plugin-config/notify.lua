@@ -49,3 +49,15 @@ local ok, telescope = pcall(require, "telescope")
 if ok then
   telescope.load_extension("notify")
 end
+
+
+
+-- noice 会默认使用 nvim-notify 来显示通知
+require("noice").setup({
+  routes = {
+    {
+      view = "notify",  -- 使用 nvim-notify 显示某些消息
+      filter = { event = "msg_showmode" },
+    },
+  },
+})
