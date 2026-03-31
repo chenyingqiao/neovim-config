@@ -18,6 +18,7 @@ services:
     network_mode: "host"
     restart: unless-stopped
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - D:\coder:/workspace
       # Go 缓存持久化
       - go-mod-cache:/root/go/pkg/mod
