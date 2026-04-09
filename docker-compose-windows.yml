@@ -1,7 +1,7 @@
 services:
   # Nginx Proxy Manager（推荐）
   npm:
-    image: jc21/nginx-proxy-manager:latest
+    image: hub.rat.dev/jc21/nginx-proxy-manager:latest
     container_name: npm
     restart: unless-stopped
     ports:
@@ -13,7 +13,7 @@ services:
       - npm-letsencrypt:/etc/letsencrypt
 
   nvim:
-    image: danding19931115/nvim-lerko
+    image: hub.rat.dev/danding19931115/nvim-lerko
     container_name: nvim-lerko
     network_mode: "host"
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
     tty: true
     stdin_open: true
   syncclipboard:
-    image: jericx/syncclipboard-server
+    image: hub.rat.dev/jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
     ports:

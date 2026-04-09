@@ -1,4 +1,17 @@
 services:
+  # Nginx Proxy Manager
+  npm:
+    image: hub.rat.dev/jc21/nginx-proxy-manager:latest
+    container_name: npm
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"  # 管理界面
+    volumes:
+      - npm-data:/data
+      - npm-letsencrypt:/etc/letsencrypt
+
   nvim:
     image: danding19931115/nvim-lerko
     container_name: nvim-lerko
@@ -15,7 +28,7 @@ services:
     tty: true
     stdin_open: true
   syncclipboard:
-    image: jericx/syncclipboard-server
+    image: hub.rat.dev/jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
     network_mode: host
@@ -29,3 +42,5 @@ volumes:
   go-mod-cache:
   cache:
   workspace:
+  npm-data:
+  npm-letsencrypt:
