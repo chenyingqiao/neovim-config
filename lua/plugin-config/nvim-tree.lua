@@ -116,9 +116,11 @@ end
 nvim_tree.setup({
   sort_by = sort_by,  -- 完全禁止内置netrw
   disable_netrw = true,
-  -- 不显示 git 状态图标
+  -- 显示 git 状态图标
   git = {
-    enable = false,
+    enable = true,
+    ignore = false,
+    timeout = 400,
   },
   -- project plugin 需要这样设置
   -- update_cwd = true,
@@ -145,6 +147,25 @@ nvim_tree.setup({
     relativenumber = false,
     -- 显示图标
     signcolumn = "yes",
+  },
+  renderer = {
+    highlight_git = "all",
+    icons = {
+      show = {
+        git = true,
+      },
+      glyphs = {
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+    },
   },
   actions = {
     open_file = {
