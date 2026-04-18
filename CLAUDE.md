@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal Neovim configuration using a hybrid vimscript + Lua architecture. The configuration emphasizes modern development workflows with extensive AI integration, particularly with Claude Code.
+This is a personal Neovim configuration using a hybrid vimscript + Lua architecture. The configuration emphasizes modern development workflows with extensive AI integration, particularly with OpenCode AI.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ Uses **vim-plug** with automatic installation. Plugin versions are tracked in `p
 
 ### Key Development Integrations
 - **LSP**: coc.nvim with coc-go for Go development
-- **AI Assistance**: claudecode.nvim (primary), supermaven-nvim (alternative)
+- **AI Assistance**: opencode.nvim (primary), supermaven-nvim (alternative)
 - **Completion**: nvim-cmp with GitHub Copilot
 - **Debugging**: vimspector with delve/debugpy support
 - **Git**: Complete integration with gitsigns, fugitive, diffview
@@ -46,12 +46,12 @@ Uses **vim-plug** with automatic installation. Plugin versions are tracked in `p
 - `<leader>dd`: Start debugging (vimspector)
 
 ### AI Assistant Integration
-- `<leader>a`: Claude Code main command
-- `<leader>af`: Focus Claude Code
-- `<leader>ar`: Resume Claude Code session
-- `<leader>aa`: Accept diff changes
-- `<leader>ad`: Deny diff changes
-- `<leader>as`: Send selection to Claude
+- `<leader>a`: OpenCode main command
+- `<leader>af`: Focus OpenCode
+- `<leader>ar`: Resume OpenCode session
+- `<leader>aa`: Ask about diagnostics
+- `<leader>ad`: Ask about diff
+- `<leader>as`: Select OpenCode action
 
 ### File & Window Management
 - `<leader>fk`: Toggle file tree (nvim-tree)

@@ -321,18 +321,17 @@ map("v", "<leader>tr", ":TranslateR<CR>", opt)
 map("v", "<leader>tt", ":'<,'>Translate<CR>", opt)
 
 
--- 设置claudeCode的快捷键
-map("n", "<leader>a", ":ClaudeCode<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>ac", ":ClaudeCode --continue<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>af", ":ClaudeCodeFocus<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>ar", ":ClaudeCode --resume<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>aC", ":ClaudeCode --continue<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>am", ":ClaudeCodeSelectModel<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>ab", ":ClaudeCodeAdd %<CR>", { noremap = true, silent = true, nowait = true })
-map("v", "<leader>as", ":ClaudeCodeSend<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>as", ":ClaudeCodeTreeAdd<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>aa", ":ClaudeCodeDiffAccept<CR>", { noremap = true, silent = true, nowait = true })
-map("n", "<leader>ad", ":ClaudeCodeDiffDeny<CR>", { noremap = true, silent = true, nowait = true })
+-- 设置opencode的快捷键 (仿照claudecode风格)
+map("n", "<leader>a", "<cmd>lua require('opencode').ask('@this: ', { submit = true })<CR>", { noremap = true, silent = true })
+map("n", "<leader>ac", "<cmd>lua require('opencode').command('session.new')<CR>", { noremap = true, silent = true })
+map("n", "<leader>af", "<cmd>lua require('opencode').toggle()<CR>", { noremap = true, silent = true })
+map("n", "<leader>ar", "<cmd>lua require('opencode').command('session.new')<CR>", { noremap = true, silent = true })
+map("n", "<leader>am", "<cmd>lua require('opencode').select()<CR>", { noremap = true, silent = true })
+map("n", "<leader>ab", "<cmd>lua require('opencode').prompt('@buffer')<CR>", { noremap = true, silent = true })
+map("v", "<leader>as", "<cmd>lua require('opencode').ask('@this: ', { submit = true })<CR>", { noremap = true, silent = true })
+map("n", "<leader>as", "<cmd>lua require('opencode').select()<CR>", { noremap = true, silent = true })
+map("n", "<leader>aa", "<cmd>lua require('opencode').ask('@diagnostics: ')<CR>", { noremap = true, silent = true })
+map("n", "<leader>ad", "<cmd>lua require('opencode').ask('@diff: ')<CR>", { noremap = true, silent = true })
 
 -- vim-fugitive git 插件
 

@@ -82,8 +82,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'supermaven-inc/supermaven-nvim' " AI 代码助手
 
 	" AI 编程助手
-	" Plug 'yetone/avante.nvim', {'tag': 'v0.0.27'} " AI 编码助手界面
-	Plug 'coder/claudecode.nvim', { 'dependencies': ['folke/snacks.nvim'] } " Claude 集成工具
+	Plug 'nickjvandyke/opencode.nvim'
+	Plug 'folke/snacks.nvim'
 call plug#end()
 
 " Safely load Lua configs - skip during headless PlugInstall
@@ -133,7 +133,7 @@ safe_require('plugin-config/persistence')
 safe_require('plugin-config/minimap')
 safe_require('plugin-config/transparent')
 safe_require('plugin-config/supermaven')
-safe_require('plugin-config/claudecode')
+safe_require('plugin-config/opencode')
 safe_require('plugin-config/diagram')
 -- safe_require('plugin-config/dap-ui')
 -- safe_require('plugin-config/windows-picker')
