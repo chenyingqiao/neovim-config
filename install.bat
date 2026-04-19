@@ -75,7 +75,7 @@ echo.
 echo Starting build...
 echo.
 
-docker buildx build --progress plain --load --platform "!PLATFORM!" !BUILD_ARGS! -t "!image_name!" -f Dockerfile-base ./
+docker buildx build --progress plain --load --platform "!PLATFORM!" !BUILD_ARGS! -t "!image_name!" -f base.Dockerfile ./
 
 echo.
 echo Build complete: !image_name!

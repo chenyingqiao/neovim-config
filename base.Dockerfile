@@ -207,6 +207,8 @@ RUN update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 # 切换 shell
 SHELL ["/bin/zsh", "-c"]
 RUN chsh -s $(which zsh)
+RUN curl -fsSL https://opencode.ai/install | bash
+
 
 # 启动 SyncClipboard 客户端并保持容器运行
 # 启动 SyncClipboard 客户端作为主进程

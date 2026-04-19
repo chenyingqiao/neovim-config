@@ -13,7 +13,7 @@ services:
       - npm-letsencrypt:/etc/letsencrypt
 
   nvim:
-    image: danding19931115/nvim-lerko
+    image: lerkobba/nvim:v0.0.2
     container_name: nvim-lerko
     network_mode: host
     volumes:

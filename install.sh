@@ -83,7 +83,7 @@ docker buildx build \
   --platform "$PLATFORM" \
   $BUILD_ARGS \
   -t "$IMAGE_NAME" \
-  -f Dockerfile-base ./
+  -f base.Dockerfile ./
 
 echo ""
 echo "Build complete: $IMAGE_NAME"
