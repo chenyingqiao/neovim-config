@@ -11,12 +11,14 @@ services:
     volumes:
       - npm-data:/data
       - npm-letsencrypt:/etc/letsencrypt
+    networks:
+      - app-network
 
   nvim:
     image: lerkobba/nvim
-    container_name: nvim-lerko
-    network_mode: host
+    container_name: nvim
     restart: unless-stopped
+    command: ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://syncclipboard:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - workspace:/workspace
@@ -25,11 +27,21 @@ services:
       - cache:/root/.cache
     tty: true
     stdin_open: true
+    networks:
+      - app-network
+
   syncclipboard:
     image: hub.rat.dev/jericx/syncclipboard-server
     container_name: syncclipboard
     restart: unless-stopped
-    network_mode: host
+    volumes:
+      - syncclipboard-data:/app/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   go-mod-cache:
@@ -37,3 +49,4 @@ volumes:
   workspace:
   npm-data:
   npm-letsencrypt:
+  syncclipboard-data:

@@ -42,7 +42,7 @@ if [ "$COMMAND" = "start" ]; then
     echo "Containers started successfully."
     echo ""
 
-    echo "Copying files to nvim-lerko..."
+    echo "Copying files to nvim..."
     if [ "$OS" = "windows" ]; then
         pwsh "$SCRIPT_DIR/script/docker-cp.ps1"
     else
@@ -50,8 +50,8 @@ if [ "$COMMAND" = "start" ]; then
     fi
     echo ""
 
-    echo "Running ssh-init.sh in nvim-lerko..."
-    docker exec nvim-lerko bash /tmp/script/ssh-init.sh
+    echo "Running ssh-init.sh in nvim..."
+    docker exec nvim bash /tmp/script/ssh-init.sh
     echo ""
 
     echo "Restarting syncclipboard to apply config..."

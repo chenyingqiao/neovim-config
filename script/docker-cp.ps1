@@ -1,5 +1,5 @@
-# 将本地文件拷贝到 nvim-lerko 容器中
-$CONTAINER = "nvim-lerko"
+# 将本地文件拷贝到 nvim 容器中
+$CONTAINER = "nvim"
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "Copying files to container: $CONTAINER"

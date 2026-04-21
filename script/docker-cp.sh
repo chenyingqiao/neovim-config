@@ -1,13 +1,10 @@
 #!/bin/bash
 set -e
 
-CONTAINER="nvim-lerko"
+CONTAINER="nvim"
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 echo "Copying files to container: $CONTAINER"
-
-docker cp "$HOME/.claude" "$CONTAINER:/root/.claude"
-echo "  [done] ~/.claude -> /root/.claude"
 
 docker cp "$HOME/.ssh" "$CONTAINER:/tmp/.ssh"
 echo "  [done] ~/.ssh -> /tmp/.ssh"

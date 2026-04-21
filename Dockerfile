@@ -1,4 +1,4 @@
-FROM danding19931115/nvim-lerko
+FROM lerkobba/nvim
 
 # 安装gitnexus
 RUN npm install -g gitnexus
