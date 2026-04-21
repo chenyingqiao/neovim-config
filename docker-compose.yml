@@ -18,7 +18,7 @@ services:
     image: lerkobba/nvim
     container_name: nvim
     restart: unless-stopped
-    command: ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://syncclipboard:5033", "--username", "admin", "--password", "admin", "--interval", "2"]
+    command: ["python3", "/root/.local/bin/syncclipboard_client.py", "--url", "http://syncclipboard:5033", "--username", "your_username", "--password", "your_password", "--interval", "1"]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - workspace:/workspace
