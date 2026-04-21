@@ -20,12 +20,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - workspace:/workspace
-      - ${HOME}/.claude:/root/.claude
       # Go 缓存持久化
       - go-mod-cache:/root/go/pkg/mod
       - cache:/root/.cache
-      - ${HOME}/.ssh:/tmp/.ssh:ro
-      - ./script:/tmp/script
     tty: true
     stdin_open: true
   syncclipboard:
@@ -33,11 +30,6 @@ services:
     container_name: syncclipboard
     restart: unless-stopped
     network_mode: host
-    environment:
-      - USERNAME=admin
-      - PASSWORD=admin
-    volumes:
-      - ./data:/app/data  # 持久化数据
 
 volumes:
   go-mod-cache:

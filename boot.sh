@@ -23,21 +23,16 @@ case "$(uname -s)" in
     *)          OS="unknown";;
 esac
 
-# 根据系统选择配置文件
-COMPOSE_FILE=""
-if [ "$OS" = "windows" ]; then
-    COMPOSE_FILE="docker-compose-windows.yml"
-else
-    COMPOSE_FILE="docker-compose.yml"
-fi
+COMPOSE_FILE="docker-compose.yml"
 
 if [ ! -f "$COMPOSE_FILE" ]; then
     echo "Error: $COMPOSE_FILE not found!"
     exit 1
 fi
 
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+
 echo "Detected OS: $OS"
-echo "Using compose file: $COMPOSE_FILE"
 echo "Command: $COMMAND"
 echo ""
 
@@ -45,6 +40,24 @@ if [ "$COMMAND" = "start" ]; then
     docker compose -f "$COMPOSE_FILE" up -d
     echo ""
     echo "Containers started successfully."
+    echo ""
+
+    echo "Copying files to nvim-lerko..."
+    if [ "$OS" = "windows" ]; then
+        pwsh "$SCRIPT_DIR/script/docker-cp.ps1"
+    else
+        bash "$SCRIPT_DIR/script/docker-cp.sh"
+    fi
+    echo ""
+
+    echo "Running ssh-init.sh in nvim-lerko..."
+    docker exec nvim-lerko bash /tmp/script/ssh-init.sh
+    echo ""
+
+    echo "Restarting syncclipboard to apply config..."
+    docker compose -f "$COMPOSE_FILE" up -d --force-recreate syncclipboard
+    echo ""
+    echo "Done."
 else
     docker compose -f "$COMPOSE_FILE" down
     echo ""
